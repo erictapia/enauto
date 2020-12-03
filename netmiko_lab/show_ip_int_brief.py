@@ -14,7 +14,13 @@ device = {
 def main():
     device_connection = Netmiko(**device)
 
-    #device_connection = Netmiko(host=device['ip'], username=device['username'], password=['password'], port=device['port'], device_type=device['device_type'])
+
+    # Had to add the following to users ssh config file ~/.ssh/config:
+    #
+    #    Host ios-xe-mgmt.cisco.com
+    #    KexAlgorithms=+diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1
+    #
+    # otherwise the connection would fail due to no matching key exchanged method found.
 
     cli_output = device_connection.send_command('show ip interface brief')
 
