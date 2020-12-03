@@ -3,7 +3,7 @@ from netmiko import Netmiko
 
 # DevNet IOS XE on CSR 16.9.3 always on sandbox
 device = {
-    'device_type': 'cisco_xe',
+    'device_type': 'cisco_ios',
     'ip': 'ios-xe-mgmt.cisco.com',
     'username': 'developer',
     'password': 'C1sco12345',
