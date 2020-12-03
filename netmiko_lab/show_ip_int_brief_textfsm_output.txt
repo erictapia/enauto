@@ -1,0 +1,38 @@
+[
+    {
+        "intf": "GigabitEthernet1",
+        "ipaddr": "10.10.20.48",
+        "status": "up",
+        "proto": "up"
+    },
+    {
+        "intf": "GigabitEthernet2",
+        "ipaddr": "unassigned",
+        "status": "administratively down",
+        "proto": "down"
+    },
+    {
+        "intf": "GigabitEthernet3",
+        "ipaddr": "unassigned",
+        "status": "administratively down",
+        "proto": "down"
+    },
+    {
+        "intf": "Loopback25",
+        "ipaddr": "1.2.3.25",
+        "status": "up",
+        "proto": "up"
+    },
+    {
+        "intf": "Loopback101",
+        "ipaddr": "unassigned",
+        "status": "up",
+        "proto": "up"
+    },
+    {
+        "intf": "Loopback1234",
+        "ipaddr": "1.2.3.4",
+        "status": "up",
+        "proto": "up"
+    }
+]
