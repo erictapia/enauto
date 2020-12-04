@@ -1,0 +1,12 @@
+---
+- name: "Play: show ip interface brief"
+  hosts: "ios-xe-always-on"
+  tasks:
+    - name: "Task 1: show ip interface brief"
+      ios_command:
+        commands: show ip interface brief
+      register: output
+
+    - name: Display output
+      debug: var=output.stdout
+
