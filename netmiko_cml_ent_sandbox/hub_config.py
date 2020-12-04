@@ -45,7 +45,8 @@ configuration = [
     'tclquit', 
 ]
 
-ztp_script = 'ztp_script/ztp.py'
+source = 'ztp_script/ztp.py'
+destination = 'ztp.py'
 
 def main():
     device_connection = Netmiko(**device)
@@ -64,7 +65,7 @@ def main():
 
     # Transfer ZTP script file
     transfer_dict = file_transfer(device_connection,
-                                    source_file=ztp_script, dest_file=ztp_script,
+                                    source_file=source, dest_file=destination,
                                       file_system='bootflash:',
                                         direction='put',
                                           overwrite_file=True)
