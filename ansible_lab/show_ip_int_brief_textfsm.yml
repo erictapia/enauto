@@ -1,0 +1,19 @@
+---
+- name: "Play: show ip interface brief"
+  hosts: "ios-xe-always-on"
+  vars:
+    template_file: "{{ lookup('env', 'NET_TEXTFSM') + '/cisco_ios_show_ip_interface_brief.textfsm' }}"
+
+  tasks:
+    - name: "Task 1: show ip interface brief"
+      ios_command:
+        commands: show ip interface brief
+      register: output
+
+    - name: "Task 2: Parse output with TextFSM"
+      set_fact:
+        sh_ip_int_br: "{{ output.stdout[0] | parse_cli_textfsm(template_file) }}"
+
+    - name: "Task 3: Print structured datda"
+      debug:
+        msg: "{{ sh_ip_int_br }}"
