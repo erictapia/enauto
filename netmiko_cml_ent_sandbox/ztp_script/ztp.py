@@ -18,8 +18,8 @@ sn = sn_text.split(" ")[-1]
 # unique tunnel and loopback IPs for each device.
 
 ipaddr_map = {
-    "9OH3MYELV9J": ("10.0.0.2", "172.16.100.2"),
-    "9RVVFV6GHDV": ("10.0.0.3", "172.16.100.3")
+    "97QMJZ5W2LT": ("10.0.0.2", "172.16.100.2"),
+    "97QMJZ5W2LT": ("10.0.0.3", "172.16.100.3")
 }
 
 # Check the dictionary for a serial number and unpack the addresses
@@ -76,4 +76,3 @@ for show_cmd in show_cmds:
     print "\n* Running command '{}'".format(show_cmd)
     cli.executep(show_cmd)
 
-}
