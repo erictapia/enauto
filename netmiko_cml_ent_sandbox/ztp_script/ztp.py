@@ -18,8 +18,8 @@ sn = sn_text.split(" ")[-1]
 # unique tunnel and loopback IPs for each device.
 
 ipaddr_map = {
-    "97QMJZ5W2LT": ("10.0.0.2", "172.16.100.2"),
-    "97QMJZ5W2LT": ("10.0.0.3", "172.16.100.3")
+    "95MDN1VSGXO": ("10.0.0.2", "172.16.100.2"),
+    "9HY4P7EGUF0": ("10.0.0.3", "172.16.100.3")
 }
 
 # Check the dictionary for a serial number and unpack the addresses
