@@ -15,6 +15,11 @@ device = {
 }
 
 configuration = [
+    'no service call-home',
+    'no call-home',
+    'logging buffered 900000',
+    'no login on-success log',
+    'netconf-yang',
     'hostname HUB',
     'cdp run',
     'ip host connect.devnet.engineer 203.0.113.1',
