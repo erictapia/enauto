@@ -1,6 +1,6 @@
 ---
 - name: "Play: show ip interface brief"
-  hosts: "ios-xe-always-on"
+  hosts: "ios_xe_always_on"
   tasks:
     - name: "Task 1: show ip interface brief"
       ios_command:

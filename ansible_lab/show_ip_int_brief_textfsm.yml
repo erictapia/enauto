@@ -1,6 +1,6 @@
 ---
 - name: "Play: show ip interface brief"
-  hosts: "ios-xe-always-on"
+  hosts: "ios_xe_always_on"
   vars:
     template_file: "{{ lookup('env', 'NET_TEXTFSM') + '/cisco_ios_show_ip_interface_brief.textfsm' }}"
 
