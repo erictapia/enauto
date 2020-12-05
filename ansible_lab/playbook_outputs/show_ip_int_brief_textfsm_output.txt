@@ -1,0 +1,67 @@
+(venv) $ ansible-playbook show_ip_int_brief_textfsm.yml 
+
+PLAY [Play: show ip interface brief] ****************************************************************************************************************
+
+TASK [Task 1: show ip interface brief] **************************************************************************************************************
+ok: [ios-xe-mgmt.cisco.com]
+
+TASK [Task 2: Parse output with TextFSM] ************************************************************************************************************
+ok: [ios-xe-mgmt.cisco.com]
+
+TASK [Task 3: Print structured datda] ***************************************************************************************************************
+ok: [ios-xe-mgmt.cisco.com] => {
+    "msg": [
+        {
+            "INTF": "GigabitEthernet1",
+            "IPADDR": "10.10.20.48",
+            "PROTO": "up",
+            "STATUS": "up"
+        },
+        {
+            "INTF": "GigabitEthernet2",
+            "IPADDR": "unassigned",
+            "PROTO": "up",
+            "STATUS": "up"
+        },
+        {
+            "INTF": "GigabitEthernet3",
+            "IPADDR": "172.16.25.3",
+            "PROTO": "up",
+            "STATUS": "up"
+        },
+        {
+            "INTF": "Loopback1",
+            "IPADDR": "unassigned",
+            "PROTO": "up",
+            "STATUS": "up"
+        },
+        {
+            "INTF": "Loopback11",
+            "IPADDR": "unassigned",
+            "PROTO": "up",
+            "STATUS": "up"
+        },
+        {
+            "INTF": "Loopback101",
+            "IPADDR": "1.1.1.1",
+            "PROTO": "up",
+            "STATUS": "up"
+        },
+        {
+            "INTF": "Loopback1112",
+            "IPADDR": "10.11.12.13",
+            "PROTO": "up",
+            "STATUS": "up"
+        },
+        {
+            "INTF": "Loopback3998",
+            "IPADDR": "3.3.9.5",
+            "PROTO": "up",
+            "STATUS": "up"
+        }
+    ]
+}
+
+PLAY RECAP ******************************************************************************************************************************************
+ios-xe-mgmt.cisco.com      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

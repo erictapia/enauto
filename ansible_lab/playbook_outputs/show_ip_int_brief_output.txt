@@ -1,0 +1,17 @@
+(venv) $ ansible-playbook show_ip_int_brief.yml
+
+PLAY [Play: show ip interface brief] ****************************************************************************************************************
+
+TASK [Task 1: show ip interface brief] **************************************************************************************************************
+ok: [ios-xe-mgmt.cisco.com]
+
+TASK [Display output] *******************************************************************************************************************************
+ok: [ios-xe-mgmt.cisco.com] => {
+    "output.stdout": [
+        "Interface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet1       10.10.20.48     YES NVRAM  up                    up      \nGigabitEthernet2       unassigned      YES NVRAM  up                    up      \nGigabitEthernet3       172.16.25.3     YES other  up                    up      \nLoopback1              unassigned      YES unset  up                    up      \nLoopback11             unassigned      YES unset  up                    up      \nLoopback101            1.1.1.1         YES manual up                    up      \nLoopback1112           10.11.12.13     YES other  up                    up      \nLoopback3998           3.3.9.5         YES other  up                    up"
+    ]
+}
+
+PLAY RECAP ******************************************************************************************************************************************
+ios-xe-mgmt.cisco.com      : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
