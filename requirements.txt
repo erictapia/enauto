@@ -15,6 +15,7 @@ netmiko==3.3.2
 ntc-templates==1.6.0
 packaging==20.7
 paramiko==2.7.2
+pyang==2.4.0
 pycparser==2.20
 PyNaCl==1.4.0
 pyparsing==2.4.7
