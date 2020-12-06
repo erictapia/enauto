@@ -1,0 +1,7 @@
+template_dns: "dns"
+template_dhcp: "dhcp"
+template_tftp: "tftp"
+template_base: "hub"
+template_ztp: "ztp.py"
+transfer_destination: "bootflash:/ztp.py"
+transfer_protocol: "scp"
