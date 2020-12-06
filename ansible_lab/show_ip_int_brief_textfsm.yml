@@ -17,3 +17,4 @@
     - name: "Task 3: Print structured datda"
       debug:
         msg: "{{ sh_ip_int_br }}"
+...

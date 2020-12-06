@@ -9,4 +9,4 @@
 
     - name: Display output
       debug: var=output.stdout
-
+...
