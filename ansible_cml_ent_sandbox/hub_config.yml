@@ -1,0 +1,40 @@
+---
+- name: "Play: Configuring host to provide ZTP services"
+  hosts: "hub"
+  tasks:
+  - name: "Task 1: Configuring DNS"
+    ios_config:
+      src: "templates/{{ template_dns }}.cfg"
+
+    register: "cli_dns_output"
+
+  - name: "Task 2: Configuring DHCP"
+    ios_config:
+      src: "templates/{{ template_dhcp }}.cfg"
+    
+    ignore_errors: True
+    
+    register: "cli_dhcp_output"
+  
+  - name: "Task 3: Configuring TFTP"
+    ios_config:
+      src: "templates/{{ template_tftp }}.cfg"
+    
+    register: "cli_tftp_output"
+  
+  - name: "Task 4: Configuring base settings"
+    ios_config:
+      src: "templates/{{ template_base }}.cfg"
+    
+    ignore_errors: True
+    
+    register: "cli_base_output"
+  
+  - name: "Task 4: Copy ztp.py to the host"
+    net_put:
+      src: "ztp_script/ztp.py"
+      dest: "bootflash:/ztp.py"
+      protocol: "scp"
+    
+    register: "scp_transfer_output"
+...
