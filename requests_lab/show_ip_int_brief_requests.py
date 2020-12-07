@@ -21,14 +21,15 @@ def get_url(base_url, module, container, resource=None):
     return f'{BASE_URL}/{module}:{container}/{resource}'
 
 def get_shipintbr_cli(interfaces):
+    # Returns a string representation of a cli sh ip int br
     cli_mimic_output = "{:<24}{:<16}{:<22}{:<9}\n".format(
         'Interfaces',
         'IP-Address',
         'Status',
         'Protocol'
     )
-        
-    
+
+
     for key in interfaces.keys():
         try:
             cli_mimic_output += "{:<24}{:<16}{:<22}{:<9}\n".format(
@@ -40,7 +41,7 @@ def get_shipintbr_cli(interfaces):
         except:
             #print(f"ERROR: {interfaces[key]['name']}")
             continue
-    
+
     return cli_mimic_output
 
 
@@ -48,6 +49,8 @@ def get_shipintbr_cli(interfaces):
 # a self-signed certification so not verifying removes warning messages.
 requests.packages.urllib3.disable_warnings()
 
+
+# ============================================================================
 # Using IETF's YANG data model
 # ============================================================================
 # Interface Status: ietf-interfaces:interfaces-state
@@ -80,7 +83,7 @@ interfaces = response.json()['ietf-interfaces:interface']
 interface_dict = {}
 
 for interface in interfaces:
-    
+
     interface_dict[interface['name']] = {
                                             'name': interface['name'],
                                             'admin-status': interface['admin-status'],
@@ -137,7 +140,7 @@ print(get_shipintbr_cli(interface_dict))
 
 
 
-
+# ============================================================================
 #  Using Cisco's native YANG data model
 # ============================================================================
 # Interface Status: Cisco-IOS-XE-interfaces-oper:interfaces/interface
@@ -159,35 +162,40 @@ print(get_shipintbr_cli(interface_dict))
 
 url = get_url(BASE_URL, 'Cisco-IOS-XE-interfaces-oper', 'interfaces', 'interface')
 
+print(f'HTTP URL: {url}')
 
+response = requests.get(url, auth=AUTH, headers=HEADERS, verify=False)
 
-# Interface IP Address: Cisco-IOS-XE-native:native/interface
-# - Interface = f'{key}{interface['name']}
-# - IP-Address = interface['ip']['address']['primary']['address']
-#     There can be more than one IP Address TODO
-#
-# Sample return data
-# {
-#   "Cisco-IOS-XE-native:interface": {
-#     "GigabitEthernet": [
-#       {
-#         "name": "1",
-#         "description": "MANAGEMENT INTERFACE - DON'T TOUCH ME",
-#         "ip": {
-#           "address": {
-#             "primary": {
-#               "address": "10.10.20.48",
-#               "mask": "255.255.255.0"
-#             }
-#           }
+print(f'Response code: {response.status_code}')
 
-url = get_url(BASE_URL, 'Cisco-IOS-XE-native', 'native', 'interface')
+interfaces = response.json()['Cisco-IOS-XE-interfaces-oper:interface']
 
+interface_dict = {}
 
+for interface in interfaces:
+    try:
+        interface_dict[interface['name']] = {
+                                     'name': interface['name'],
+                                     'ip': interface['ipv4'],
+                                     'admin-status': interface['admin-status'],
+                                     'oper-status': interface['oper-status']
+                                 }
+    except:
+        if not 'ipv4' in interface.keys():
 
+            interface_dict[interface['name']] = {
+                                         'name': interface['name'],
+                                         'ip': 'unassigned',
+                                         'admin-status': interface['admin-status'],
+                                         'oper-status': interface['oper-status']
+                                     }
 
+        continue
 
-
+print()
+print("Data from both request will be used for show ip interface brief")
+print()
+print(get_shipintbr_cli(interface_dict))
 
 
 
@@ -243,3 +251,39 @@ url = get_url(BASE_URL, 'Cisco-IOS-XE-native', 'native', 'interface')
 # ... OMITTED
 
 url = get_url(BASE_URL, 'openconfig-interfaces', 'interfaces', 'interface')
+
+print(f'HTTP URL: {url}')
+
+response = requests.get(url, auth=AUTH, headers=HEADERS, verify=False)
+
+print(f'Response code: {response.status_code}')
+
+#print(response.json()['openconfig-interfaces:interface'])
+
+interfaces = response.json()['openconfig-interfaces:interface']
+
+interface_dict = {}
+
+for interface in interfaces:
+    try:
+        interface_dict[interface['name']] = {
+                                                'name': interface['name'],
+                                                'ip': interface['subinterfaces']['subinterface'][0]['openconfig-if-ip:ipv4']['addresses']['address'][0]['ip'],
+                                                'admin-status': interface['state']['admin-status'],
+                                                'oper-status': interface['state']['oper-status']
+                                            }
+    except:
+        interface_dict[interface['name']] = {
+                                                'name': interface['name'],
+                                                'ip': 'unassigned',
+                                                'admin-status': interface['state']['admin-status'],
+                                                'oper-status': interface['state']['oper-status']
+                                            }
+        continue
+
+print()
+print("Data from both request will be used for show ip interface brief")
+print()
+print(get_shipintbr_cli(interface_dict))
+
+
