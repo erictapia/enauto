@@ -9,13 +9,21 @@ device = {
 
 
 # Globals
-BASE_URL = f"https://{['device[host']}:{device['port']}/restconf/data"
+BASE_URL = f"https://{device['host']}:{device['port']}/restconf/data"
+AUTH = device['username'], device['password']
+HEADERS = {
+    'Accept': 'application/yang-data+json',
+    'Content-Type': 'application/yang-data+json'
+}
 
-
-def url(base_url, module, container, resource=None):
+def get_url(base_url, module, container, resource=None):
     # Returns the RESTCONF URL
-    return f'{BASE_URL}{module}:{container}/{resource}'
+    return f'{BASE_URL}/{module}:{container}/{resource}'
 
+
+# Disabling warnings due to not verifying certification.  IOS-XE sandbox uses
+# a self-signed certification so not verifying removes warning messages.
+requests.packages.urllib3.disable_warnings()
 
 # Using IETF's YANG data model
 # ============================================================================
@@ -34,9 +42,34 @@ def url(base_url, module, container, resource=None):
 #       "oper-status": "up",
 # ... OMMITTED
 
-url = (BASE_URL, 'ietf-interfaces', 'interfaces-state', 'interface')
+url = get_url(BASE_URL, 'ietf-interfaces', 'interfaces-state', 'interface')
+
+print()
+print(f'HTTP URL: {url}')
+print()
+
+response = requests.get(url, auth=AUTH, headers=HEADERS, verify=False)
+
+print(f'Response codeL: {response.status_code}')
+print()
+#print('Body:')
+#print('*'*79)
+#print(response.text)
+
+interfaces = response.json()['ietf-interfaces:interface']
+interface_list = []
+for interface in interfaces:
+    
+    interface_list.append(
+        {
+            'name': interface['name'],
+            'admin_status': interface['admin-status'],
+            'oper-status': interface['oper-status'] 
+        }
+    )
 
 
+print(interface_list)
 
 
 
@@ -63,7 +96,7 @@ url = (BASE_URL, 'ietf-interfaces', 'interfaces-state', 'interface')
 #       },
 # ... OMMITTED
 
-url = (BASE_URL, 'ietf-interfaces', 'interfaces', 'interface')
+url = get_url(BASE_URL, 'ietf-interfaces', 'interfaces', 'interface')
 
 
 
@@ -89,7 +122,7 @@ url = (BASE_URL, 'ietf-interfaces', 'interfaces', 'interface')
 #       "last-change": "2020-12-06T16:47:35.000395+00:00",
 # ... OMITTED
 
-url = (BASE_URL, 'Cisco-IOS-XE-interfaces-oper', 'interfaces', 'interface')
+url = get_url(BASE_URL, 'Cisco-IOS-XE-interfaces-oper', 'interfaces', 'interface')
 
 
 
@@ -113,7 +146,7 @@ url = (BASE_URL, 'Cisco-IOS-XE-interfaces-oper', 'interfaces', 'interface')
 #             }
 #           }
 
-url = (BASE_URL, 'Cisco-IOS-XE-native', 'native', 'interface')
+url = get_url(BASE_URL, 'Cisco-IOS-XE-native', 'native', 'interface')
 
 
 
@@ -174,4 +207,4 @@ url = (BASE_URL, 'Cisco-IOS-XE-native', 'native', 'interface')
 #                     },
 # ... OMITTED
 
-url = (BASE_URL, 'openconfig-interfaces', 'interfaces', 'interface')
+url = get_url(BASE_URL, 'openconfig-interfaces', 'interfaces', 'interface')
