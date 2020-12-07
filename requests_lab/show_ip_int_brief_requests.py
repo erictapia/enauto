@@ -1,4 +1,5 @@
 import requests
+import json
 
 device = {
     'host': 'ios-xe-mgmt.cisco.com',
@@ -6,7 +7,6 @@ device = {
     'password': 'C1sco12345',
     'port': '9443'
 }
-
 
 # Globals
 BASE_URL = f"https://{device['host']}:{device['port']}/restconf/data"
@@ -19,6 +19,29 @@ HEADERS = {
 def get_url(base_url, module, container, resource=None):
     # Returns the RESTCONF URL
     return f'{BASE_URL}/{module}:{container}/{resource}'
+
+def get_shipintbr_cli(interfaces):
+    cli_mimic_output = "{:<24}{:<16}{:<22}{:<9}\n".format(
+        'Interfaces',
+        'IP-Address',
+        'Status',
+        'Protocol'
+    )
+        
+    
+    for key in interfaces.keys():
+        try:
+            cli_mimic_output += "{:<24}{:<16}{:<22}{:<9}\n".format(
+                interfaces[key]['name'],
+                interfaces[key]['ip'],
+                interfaces[key]['admin-status'],
+                interfaces[key]['oper-status']
+            )
+        except:
+            #print(f"ERROR: {interfaces[key]['name']}")
+            continue
+    
+    return cli_mimic_output
 
 
 # Disabling warnings due to not verifying certification.  IOS-XE sandbox uses
@@ -46,31 +69,23 @@ url = get_url(BASE_URL, 'ietf-interfaces', 'interfaces-state', 'interface')
 
 print()
 print(f'HTTP URL: {url}')
-print()
 
 response = requests.get(url, auth=AUTH, headers=HEADERS, verify=False)
 
-print(f'Response codeL: {response.status_code}')
-print()
-#print('Body:')
-#print('*'*79)
-#print(response.text)
+print(f'Response code: {response.status_code}')
 
 interfaces = response.json()['ietf-interfaces:interface']
-interface_list = []
+
+# Dictionary to store each interface config or state data
+interface_dict = {}
+
 for interface in interfaces:
     
-    interface_list.append(
-        {
-            'name': interface['name'],
-            'admin_status': interface['admin-status'],
-            'oper-status': interface['oper-status'] 
-        }
-    )
-
-
-print(interface_list)
-
+    interface_dict[interface['name']] = {
+                                            'name': interface['name'],
+                                            'admin-status': interface['admin-status'],
+                                            'oper-status': interface['oper-status'] 
+                                        }
 
 
 # Interface IP Address: ietf-interfaces:interfaces
@@ -98,7 +113,27 @@ print(interface_list)
 
 url = get_url(BASE_URL, 'ietf-interfaces', 'interfaces', 'interface')
 
+print()
+print(f'HTTP URL: {url}')
 
+response = requests.get(url, auth=AUTH, headers=HEADERS, verify=False)
+
+print(f'Response code: {response.status_code}')
+print()
+
+interfaces = response.json()['ietf-interfaces:interface']
+
+for interface in interfaces:
+    try:
+        interface_dict[interface['name']]['ip'] = interface['ietf-ip:ipv4']['address'][0]['ip']
+    except:
+        if not 'address' in interface['ietf-ip:ipv4'].keys():
+            interface_dict[interface['name']]['ip'] = 'unassigned'
+        continue
+
+print("Data from both request will be used for show ip interface brief")
+print()
+print(get_shipintbr_cli(interface_dict))
 
 
 
