@@ -20,8 +20,8 @@
       register: interfaces
 
     - name: "Task 2: Output 'sh ip int br'"
-      debug: 
-        var: interfaces.json
-
+      debug:
+        var: item
+      loop: "{{ interfaces.json['Cisco-IOS-XE-interfaces-oper:interface'] | json_query('[*].name') }}"
 ... 
 
