@@ -1,0 +1,27 @@
+---
+- name: "Playbook will get information displayed in a 'sh ip in br' command."
+  hosts: ios_xe_always_on
+
+  tasks:
+    - name: "Task 1: Get Interface information via URI"
+      uri:
+        url: "https://{{ ansible_host }}:{{ restconf_port }}/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/interface"
+        user: "{{ ansible_user }}"
+        password: "{{ ansible_password }}"
+        method: GET
+        validate_certs: no
+        force_basic_auth: yes
+        headers:
+          Content-type: application/yang-data+json
+          Accept: application/yang-data+json
+        status_code: 200
+        return_content: yes
+
+      register: interfaces
+
+    - name: "Task 2: Output 'sh ip int br'"
+      debug: 
+        var: interfaces.json
+
+... 
+
