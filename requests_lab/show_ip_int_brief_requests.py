@@ -1,5 +1,4 @@
 import requests
-import json
 
 device = {
     'host': 'ios-xe-mgmt.cisco.com',
@@ -29,7 +28,6 @@ def get_shipintbr_cli(interfaces):
         'Protocol'
     )
 
-
     for key in interfaces.keys():
         try:
             cli_mimic_output += "{:<24}{:<16}{:<22}{:<9}\n".format(
@@ -51,12 +49,15 @@ requests.packages.urllib3.disable_warnings()
 
 
 # ============================================================================
-# Using IETF's YANG data model
+# Using IETF's YANG data model to simulate a "show ip int br"
+# Requires to requests:
+# - 1st will get the interface name, and statuses
+# - 2nd will get the ip
 # ============================================================================
-# Interface Status: ietf-interfaces:interfaces-state
-# - Interface = interface['name']
-# - Status = interface['admin-status']
-# - Protocol = interface['oper-status']
+
+# 1st request
+#
+# ietf-interfaces:interfaces-state
 #
 # Sample return data
 # {
@@ -66,7 +67,7 @@ requests.packages.urllib3.disable_warnings()
 #       "type": "iana-if-type:ethernetCsmacd",
 #       "admin-status": "up",
 #       "oper-status": "up",
-# ... OMMITTED
+#       ... OMMITTED
 
 url = get_url(BASE_URL, 'ietf-interfaces', 'interfaces-state', 'interface')
 
@@ -91,28 +92,21 @@ for interface in interfaces:
                                         }
 
 
+# 2nd request
+#
 # Interface IP Address: ietf-interfaces:interfaces
-# - Interface = interface['name']
-# - IP-Address = interface['ietf-ip:ipv4']['address']['ip']
-#     There can be more than one IP Address TODO
 #
 # Sample return data
 # {
 #   "ietf-interfaces:interface": [
 #     {
 #       "name": "GigabitEthernet1",
-#       "description": "MANAGEMENT INTERFACE - DON'T TOUCH ME",
-#       "type": "iana-if-type:ethernetCsmacd",
-#       "enabled": true,
+#       ... OMITTED
 #       "ietf-ip:ipv4": {
 #         "address": [
 #           {
-#             "ip": "10.10.20.48",
-#             "netmask": "255.255.255.0"
-#           }
-#         ]
-#       },
-# ... OMMITTED
+#              "ip": "10.10.20.48",
+#              ... OMMITTED
 
 url = get_url(BASE_URL, 'ietf-interfaces', 'interfaces', 'interface')
 
@@ -130,6 +124,7 @@ for interface in interfaces:
     try:
         interface_dict[interface['name']]['ip'] = interface['ietf-ip:ipv4']['address'][0]['ip']
     except:
+        # Not all interfaces have an address, setting as unassigned
         if not 'address' in interface['ietf-ip:ipv4'].keys():
             interface_dict[interface['name']]['ip'] = 'unassigned'
         continue
@@ -141,12 +136,13 @@ print(get_shipintbr_cli(interface_dict))
 
 
 # ============================================================================
-#  Using Cisco's native YANG data model
+#  Using Cisco's native YANG data model to simulate a "sh ip int br"
+#  Requires 1 request
 # ============================================================================
-# Interface Status: Cisco-IOS-XE-interfaces-oper:interfaces/interface
-# - Interface = interface['name']
-# - Status = interface['admin-status']
-# - Protocol = interface['oper-status']
+
+# Request
+#
+# Cisco-IOS-XE-interfaces-oper:interfaces/interface
 #
 # Sample return data
 #
@@ -181,6 +177,7 @@ for interface in interfaces:
                                      'oper-status': interface['oper-status']
                                  }
     except:
+        # Not all interfaces have an address, setting to unassigned
         if not 'ipv4' in interface.keys():
 
             interface_dict[interface['name']] = {
@@ -198,16 +195,13 @@ print()
 print(get_shipintbr_cli(interface_dict))
 
 
-
-#  Using OpenConfig's YANG data model
+# ===========================================================================
+#  Using OpenConfig's YANG data model to simulate a "sh ip int br"
 # ============================================================================
-# Interface Status: openconfig-interfaces:interfaces/interface
-# - Interface = interface['name']
-# - Status = interface['state']['admin-status']
-# - Protocol = interface['state']['oper-status']
-# - IP-Address = interface['subinterfaces']['subinterface']
-#                  ['openconfig-if-ip:ipv4']['addresses']['address']['ip'] 
-#     There can be more than one IP Address TODO
+
+# Requires 1 request
+#
+# openconfig-interfaces:interfaces/interface
 #
 # Sample return data
 # {
@@ -220,9 +214,7 @@ print(get_shipintbr_cli(interface_dict))
 #       },
 #       "state": {
 #         "name": "GigabitEthernet1",
-#         "type": "iana-if-type:ethernetCsmacd",
-#         "enabled": true,
-#         "ifindex": 1,
+#         ... OMITTED
 #         "admin-status": "UP",
 #         "oper-status": "UP",
 #         ... OMITTED
@@ -231,23 +223,11 @@ print(get_shipintbr_cli(interface_dict))
 #         "subinterface": [
 #           {
 #             ...OMITTED
-#             "state": {
-#               "enabled": true,
-#               "name": "GigabitEthernet1",
-#               "ifindex": 1,
-#               "admin-status": "UP",
-#               "oper-status": "UP",
-#               ... OMITTED
-#             },
 #             "openconfig-if-ip:ipv4": {
 #               "addresses": {
 #                 "address": [
 #                   {
 #                     "ip": "10.10.20.48",
-#                     "config": {
-#                       "ip": "10.10.20.48",
-#                       "prefix-length": 24
-#                     },
 # ... OMITTED
 
 url = get_url(BASE_URL, 'openconfig-interfaces', 'interfaces', 'interface')
@@ -257,8 +237,6 @@ print(f'HTTP URL: {url}')
 response = requests.get(url, auth=AUTH, headers=HEADERS, verify=False)
 
 print(f'Response code: {response.status_code}')
-
-#print(response.json()['openconfig-interfaces:interface'])
 
 interfaces = response.json()['openconfig-interfaces:interface']
 
@@ -273,6 +251,7 @@ for interface in interfaces:
                                                 'oper-status': interface['state']['oper-status']
                                             }
     except:
+        # Not all IP have an address, setting to unassigned
         interface_dict[interface['name']] = {
                                                 'name': interface['name'],
                                                 'ip': 'unassigned',
@@ -285,5 +264,3 @@ print()
 print("Data from both request will be used for show ip interface brief")
 print()
 print(get_shipintbr_cli(interface_dict))
-
-
