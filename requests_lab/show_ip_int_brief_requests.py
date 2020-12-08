@@ -37,7 +37,6 @@ def get_shipintbr_cli(interfaces):
                 interfaces[key]['oper-status']
             )
         except:
-            #print(f"ERROR: {interfaces[key]['name']}")
             continue
 
     return cli_mimic_output
@@ -50,14 +49,15 @@ requests.packages.urllib3.disable_warnings()
 
 # ============================================================================
 # Using IETF's YANG data model to simulate a "show ip int br"
-# Requires to requests:
+#
+# Requires two requests:
 # - 1st will get the interface name, and statuses
 # - 2nd will get the ip
 # ============================================================================
 
 # 1st request
 #
-# ietf-interfaces:interfaces-state
+# ietf-interfaces:interfaces-state/interface
 #
 # Sample return data
 # {
@@ -94,7 +94,7 @@ for interface in interfaces:
 
 # 2nd request
 #
-# Interface IP Address: ietf-interfaces:interfaces
+# ietf-interfaces:interfaces/interface
 #
 # Sample return data
 # {
