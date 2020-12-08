@@ -8,6 +8,7 @@ cryptography==3.2.1
 future==0.18.2
 idna==2.10
 Jinja2==2.11.2
+jmespath==0.10.0
 lxml==4.6.2
 MarkupSafe==1.1.1
 ncclient==0.6.9
