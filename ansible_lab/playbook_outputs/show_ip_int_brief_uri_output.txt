@@ -1,0 +1,39 @@
+
+PLAY [Playbook will get information displayed in a 'sh ip in br' command.] *****
+
+TASK [Task 1: Get Interface information via URI] *******************************
+ok: [ios-xe-mgmt.cisco.com]
+
+TASK [Task 2: Output 'sh ip int br'] *******************************************
+ok: [ios-xe-mgmt.cisco.com] => {
+    "msg": [
+        [
+            "GigabitEthernet1",
+            "10.10.20.48",
+            "if-state-up",
+            "if-oper-state-ready"
+        ],
+        [
+            "GigabitEthernet2",
+            null,
+            "if-state-down",
+            "if-oper-state-no-pass"
+        ],
+        [
+            "GigabitEthernet3",
+            null,
+            "if-state-down",
+            "if-oper-state-no-pass"
+        ],
+        [
+            "Control Plane",
+            null,
+            "if-state-up",
+            "if-oper-state-ready"
+        ]
+    ]
+}
+
+PLAY RECAP *********************************************************************
+ios-xe-mgmt.cisco.com      : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
