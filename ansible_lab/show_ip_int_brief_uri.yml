@@ -21,7 +21,7 @@
 
     - name: "Task 2: Output 'sh ip int br'"
       debug:
-        var: item
-      loop: "{{ interfaces.json['Cisco-IOS-XE-interfaces-oper:interface'] | json_query('[*].name') }}"
-... 
-
+        msg: "{{ interfaces.json['Cisco-IOS-XE-interfaces-oper:interface'] | json_query(query) }}"
+      vars:
+        query: "[*].[name, ipv4, \"admin-status\", \"oper-status\"]"
+...
