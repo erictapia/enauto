@@ -15,9 +15,9 @@ device = {
 #     'no call-home',
 #     'logging buffered 900000',
 #     'netconf-yang',
-#     'ip ssh version 2',
 #     'no license smart enable',
-#     'end',
+
+#  how to push file with ncclient?
 #     'tclsh',
 #     'puts [open "bootflash:ztp.py" w+] { test }',
 #     'tclquit', 
@@ -103,6 +103,9 @@ conf = f'''
                     <enable/>
                 </server>
             </scp>
+            <ssh>
+                <version>2</version>
+            </ssh>
             <http xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-http">
                 <server>false</server>
                 <secure-server>true</secure-server>
