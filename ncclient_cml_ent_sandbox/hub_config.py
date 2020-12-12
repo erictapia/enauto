@@ -14,7 +14,7 @@ device = {
 # configuration = [
 #     'no call-home',
 #     'logging buffered 900000',
-#     'netconf-yang',
+#     'netconf-yang', <== not possible 
 #     'no license smart enable',
 
 #  how to push file with ncclient?
