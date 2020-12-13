@@ -38,7 +38,10 @@ body = f'j_username={controller["username"]}&j_password={controller["password"]}
 
 host_session.headers = headers
 
+
+
 try:
+    # Authenticate
     response = host_session.post(f'{BASE_URL}{resource}', data=body, verify=True )
     print()
     print(response)
@@ -46,11 +49,7 @@ try:
     print(response.headers)
     print()
 
-    # Get Device Inventory
-    resource = '/system/device'
-
-    host_session.headers['Content-type'] = 'application/json'
-
+    # CLI like HTTP get requests
     while True:
         resource = input('Enter resource: ')
 
@@ -61,7 +60,7 @@ try:
             continue
         
         response = host_session.get(f'{BASE_URL}{resource}', data=None, verify=True)
-        
+
         if response.status_code == 200:
             
             print()
