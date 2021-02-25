@@ -8,15 +8,15 @@ import json
 # password: RG!_Yw919_83
 
 controller = {
-    'host': 'sandbox-sdwan-1.cisco.com',
-    'username': 'devnetuser',
-    'password': 'RG!_Yw919_83'
+    "host": "sandbox-sdwan-1.cisco.com",
+    "username": "devnetuser",
+    "password": "RG!_Yw919_83"
 }
 
 
 # Global constants
 
-BASE_URL = f'https://{controller["host"]}'
+BASE_URL = f"https://{controller['host']}"
 
 # TODO:
 # 	- API requests using Device Intentory API, retrieve and display data
@@ -29,20 +29,23 @@ BASE_URL = f'https://{controller["host"]}'
 host_session = requests.session()
 
 # Authenticate to get a j_session_id
-resource = '/j_security_check'
+resource = "j_security_check"
 headers = {
     "Content-type": "application/x-www-form-urlencoded" 
 }
 
-body = f'j_username={controller["username"]}&j_password={controller["password"]}'
+#body = f"j_username={controller["username"]}&j_password={controller["password"]}"
+body = {
+    "j_username": controller["username"],
+    "j_password": controller["password"]
+}
+
 
 host_session.headers = headers
 
-
-
 try:
     # Authenticate
-    response = host_session.post(f'{BASE_URL}{resource}', data=body, verify=True )
+    response = host_session.post(f"{BASE_URL}/{resource}", data=body, verify=True)
     print()
     print(response)
     print(response.text)
@@ -51,15 +54,16 @@ try:
 
     # CLI like HTTP get requests
     while True:
-        resource = input('Enter resource: ')
+        resource = input("Enter resource: ")
 
-        if resource == 'exit':
+        if resource == "exit":
             break
         
-        if resource == '':
+        if resource == "":
             continue
-        
-        response = host_session.get(f'{BASE_URL}{resource}', data=None, verify=True)
+        print(f"Request: {BASE_URL}/{resource}", end="\n\n")
+
+        response = host_session.get(f"{BASE_URL}/{resource}", data=None, verify=True)
 
         if response.status_code == 200:
             
@@ -67,11 +71,14 @@ try:
             print(response)
             print()
             print(response.headers)
-            print('Body:')
-            print('='*79)
-            print(json.dumps(response.json()['data'], indent=2))
+            print("Body:")
+            print("="*79)
+            print(json.dumps(response.json()["data"], indent=2))
+
+        else:
+            print(f"Response code: {response.status_code}")
 
         print()
 finally:
-    print('EXIT')
+    print("EXIT")
     host_session.close()
