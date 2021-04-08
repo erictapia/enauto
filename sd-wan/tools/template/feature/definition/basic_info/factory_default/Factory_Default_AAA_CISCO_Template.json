@@ -1,0 +1,67 @@
+{
+  "user": {
+    "vipType": "constant",
+    "vipValue": [
+      {
+        "vipOptional": false,
+        "name": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "admin"
+        },
+        "password": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "$6$wRoUVQ==$Ujj8J/h2llpidWIrhayO.FRiixbJ9LFqVmxIQTMCLFoIRKuQhb.JLPMzEKMybdXz5OYBwgtxQMQsFeI1BbNmJ.",
+          "vipVariableName": "undefined_password"
+        },
+        "secret": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "$9$3V6L3V6L2VUI2k$ysPnXOdg8RLj9KgMdmfHdSHkdaMmiHzGaUpcqH6pfTo",
+          "vipVariableName": "undefined_secret"
+        },
+        "privilege": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "15",
+          "vipVariableName": "user_privilege_0"
+        },
+        "pubkey-chain": {
+          "vipObjectType": "tree",
+          "vipType": "ignore",
+          "vipValue": [],
+          "vipVariableName": "user_pubkey_chain_0",
+          "vipPrimaryKey": [
+            "key-string"
+          ]
+        },
+        "priority-order": [
+          "name",
+          "password",
+          "secret",
+          "pubkey-chain",
+          "privilege"
+        ]
+      }
+    ],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "name"
+    ]
+  },
+  "tacacs": {
+    "vipType": "ignore",
+    "vipValue": []
+  },
+  "radius": {
+    "vipType": "ignore",
+    "vipValue": []
+  },
+  "server-auth-order": {
+    "vipObjectType": "object",
+    "vipType": "constant",
+    "vipValue": "local",
+    "vipVariableName": "server_auth_order"
+  }
+}

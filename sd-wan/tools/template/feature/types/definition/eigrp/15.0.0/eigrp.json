@@ -1,0 +1,436 @@
+[
+  {
+    "key": "as-num",
+    "description": "Autonomous System ID",
+    "details": "Set autonomous system ID <1..65535>",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "variable",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 65535
+    },
+    "dataPath": [
+      "eigrp"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "address-family",
+    "description": "Address Family",
+    "details": "Set EIGRP address family",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "eigrp"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "type"
+    ],
+    "children": [
+      {
+        "key": "type",
+        "description": "Address Family",
+        "details": "Set EIGRP address family",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "ipv4",
+              "value": "ipv4"
+            }
+          ],
+          "default": "ipv4"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "redistribute",
+        "description": "Redistribute Routes",
+        "details": "Redistribute routes into EIGRP",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataPath": [
+          "topology",
+          "base"
+        ],
+        "objectType": "tree",
+        "primaryKeys": [
+          "protocol"
+        ],
+        "children": [
+          {
+            "key": "protocol",
+            "description": "Protocol",
+            "details": "Set the protocol to redistribute routes from",
+            "optionType": [
+              "constant",
+              "variable"
+            ],
+            "defaultOption": "constant",
+            "dataType": {
+              "type": "enum",
+              "values": [
+                {
+                  "key": "bgp",
+                  "value": "bgp"
+                },
+                {
+                  "key": "connected",
+                  "value": "connected"
+                },
+                {
+                  "key": "nat-route",
+                  "value": "nat-route"
+                },
+                {
+                  "key": "omp",
+                  "value": "omp"
+                },
+                {
+                  "key": "ospf",
+                  "value": "ospf"
+                },
+                {
+                  "key": "static",
+                  "value": "static"
+                }
+              ]
+            },
+            "dataPath": [],
+            "objectType": "object"
+          },
+          {
+            "key": "route-map",
+            "description": "Route Policy",
+            "details": "Configure policy to apply to prefixes received from EIGRP neighbor",
+            "optionType": [
+              "constant",
+              "variable",
+              "ignore"
+            ],
+            "defaultOption": "ignore",
+            "dataType": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "dataPath": [],
+            "objectType": "object"
+          }
+        ]
+      },
+      {
+        "key": "network",
+        "description": "Network",
+        "details": "Configure the networks for EIGRP to advertise",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataPath": [],
+        "objectType": "tree",
+        "primaryKeys": [
+          "prefix"
+        ],
+        "children": [
+          {
+            "key": "prefix",
+            "description": "Network Prefix",
+            "details": "Configure the prefixes for EIGRP to announce",
+            "optionType": [
+              "constant",
+              "variable"
+            ],
+            "defaultOption": "constant",
+            "dataType": {
+              "type": "ipv4-prefix"
+            },
+            "dataPath": [],
+            "objectType": "object"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "hello-interval",
+    "description": "Hello Interval (seconds)",
+    "details": "Set EIGRP hello interval",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 65535,
+      "default": 5
+    },
+    "dataPath": [
+      "eigrp"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "hold-time",
+    "description": "Hold Time (seconds)",
+    "details": "Set EIGRP hold time",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 65535,
+      "default": 15
+    },
+    "dataPath": [
+      "eigrp"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "name",
+    "description": "Route Policy Name",
+    "details": "Configure policy to apply to prefixes received from EIGRP neighbor",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "dataPath": [
+      "eigrp",
+      "table-map"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "type",
+    "description": "Authentication Type",
+    "details": "Set EIGRP router authentication type",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "md5",
+          "value": "md5"
+        },
+        {
+          "key": "hmac-sha-256",
+          "value": "hmac-sha-256"
+        }
+      ]
+    },
+    "dataPath": [
+      "eigrp",
+      "authentication"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "auth-key",
+    "description": "Authentication Key",
+    "details": "Set hmac-sha-256 authentication key",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 31
+    },
+    "dataPath": [
+      "eigrp",
+      "authentication"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "key",
+    "description": "Keychain Name",
+    "details": "Set keychain name",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [
+      "eigrp",
+      "authentication",
+      "keychain"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "key_id"
+    ],
+    "children": [
+      {
+        "key": "key_id",
+        "description": "MD5 Key ID",
+        "details": "Set MD5 key ID",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "number",
+          "min": 1,
+          "max": 255
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "keystring",
+        "description": "MD5 Authentication Key",
+        "details": "Set MD5 key",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "passphrase",
+          "minLength": 1,
+          "maxLength": 31
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "af-interface",
+    "description": "IPv4 Static Route",
+    "details": "Configure IPv4 Static Routes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "eigrp"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "name"
+    ],
+    "children": [
+      {
+        "key": "name",
+        "description": "Interface name",
+        "details": "Set interface name",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "shutdown",
+        "description": "Shutdown",
+        "details": "Enable/disable EIGRP",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "boolean",
+          "default": "false",
+          "label": {
+            "on": "Yes",
+            "off": "No"
+          }
+        },
+        "dataPath": [],
+        "objectType": "node-only"
+      },
+      {
+        "key": "summary-address",
+        "description": "Summary address",
+        "details": "Set summary addresses",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataPath": [],
+        "objectType": "tree",
+        "primaryKeys": [
+          "prefix"
+        ],
+        "children": [
+          {
+            "key": "prefix",
+            "description": "Summary address prefix",
+            "details": "Set summary address prefix",
+            "optionType": [
+              "constant",
+              "variable",
+              "ignore"
+            ],
+            "defaultOption": "ignore",
+            "dataType": {
+              "type": "ipv4-prefix"
+            },
+            "dataPath": [],
+            "objectType": "object"
+          }
+        ]
+      }
+    ]
+  }
+]

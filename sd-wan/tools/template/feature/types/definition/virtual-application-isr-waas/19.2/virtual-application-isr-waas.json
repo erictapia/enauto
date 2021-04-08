@@ -1,0 +1,121 @@
+[
+  {
+    "key": "virtual-application",
+    "description": "Virtual Application",
+    "details": "Virtual application Instance",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "application-type"
+    ],
+    "children": [
+      {
+        "key": "instance-id",
+        "description": "Virtual Application Instance",
+        "details": "List of Virtual applications",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 36,
+          "default": "1"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "application-type",
+        "description": "Virtual Application Type",
+        "details": "List of Virtual applications",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 32,
+          "default": "waas"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "waas-profile",
+        "description": "WAAS Profile",
+        "details": "WAAS Profile",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "ISR-WAAS-200",
+              "value": "ISR Waas 200"
+            },
+            {
+              "key": "ISR-WAAS-750",
+              "value": "ISR Waas 750"
+            },
+            {
+              "key": "ISR-WAAS-1300",
+              "value": "ISR Waas 1300"
+            },
+            {
+              "key": "ISR-WAAS-2500",
+              "value": "ISR Waas 2500"
+            }
+          ]
+        },
+        "dataPath": [
+          "waas"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "waas-mgmt-ip",
+        "description": "WAAS Management IP",
+        "details": "WAAS Management IP",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4-prefix"
+        },
+        "dataPath": [
+          "waas"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "waas-vpg-ip",
+        "description": "WAAS Virtual Port Group IP",
+        "details": "WAAS Virtual Port Group IP",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4-prefix"
+        },
+        "dataPath": [
+          "waas"
+        ],
+        "objectType": "object"
+      }
+    ]
+  }
+]

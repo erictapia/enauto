@@ -1,0 +1,9 @@
+{
+  "control": {
+    "protocol": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "dtls"
+    }
+  }
+}

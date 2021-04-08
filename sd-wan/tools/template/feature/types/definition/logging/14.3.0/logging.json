@@ -1,0 +1,352 @@
+[
+  {
+    "key": "enable",
+    "description": "Enable Disk",
+    "details": "Enable logging to local disk",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "dataPath": [
+      "disk"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "size",
+    "description": "Maximum File Size (MB)",
+    "details": "Set maximum size of file before it is rotated",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 20,
+      "default": 10
+    },
+    "dataPath": [
+      "disk",
+      "file"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "rotate",
+    "description": "Rotations",
+    "details": "Set number of syslog files to create before discarding oldest files",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 10,
+      "default": 10
+    },
+    "dataPath": [
+      "disk",
+      "file"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "priority",
+    "description": "Priority",
+    "details": "Set logging level for messages logged to disk",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "emergency",
+          "value": "Emergency: System is unusable (severity=0)"
+        },
+        {
+          "key": "alert",
+          "value": "Alert: Immediate action needed (severity=1)"
+        },
+        {
+          "key": "critical",
+          "value": "Critical: Critical conditions (severity=2)"
+        },
+        {
+          "key": "error",
+          "value": "Error: Error conditions (severity=3)"
+        },
+        {
+          "key": "warn",
+          "value": "Warn: Warning conditions (severity=4)"
+        },
+        {
+          "key": "notice",
+          "value": "Notice: Normal but significant conditions (severity=5)"
+        },
+        {
+          "key": "information",
+          "value": "Information: Informational messages (severity=6)"
+        }
+      ],
+      "default": "information"
+    },
+    "dataPath": [
+      "disk"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "server",
+    "description": "Remote host",
+    "details": "Enable logging to remote server",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "name"
+    ],
+    "minChildren": "0",
+    "maxChildren": "4",
+    "children": [
+      {
+        "key": "name",
+        "description": "Hostname/IPv4 Address",
+        "details": "Set hostname or IPv4 address of server",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "vpn",
+        "description": "VPN ID",
+        "details": "Set VPN in which syslog server is located",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "number",
+          "min": 0,
+          "max": 65530,
+          "default": 0
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "source-interface",
+        "description": "Source Interface",
+        "details": "Set interface to use to reach syslog server",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "priority",
+        "description": "Priority",
+        "details": "Set logging level for messages logged to server",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "emergency",
+              "value": "Emergency: System is unusable (severity=0)"
+            },
+            {
+              "key": "alert",
+              "value": "Alert: Immediate action needed (severity=1)"
+            },
+            {
+              "key": "critical",
+              "value": "Critical: Critical conditions (severity=2)"
+            },
+            {
+              "key": "error",
+              "value": "Error: Error conditions (severity=3)"
+            },
+            {
+              "key": "warn",
+              "value": "Warn: Warning conditions (severity=4)"
+            },
+            {
+              "key": "notice",
+              "value": "Notice: Normal but significant conditions (severity=5)"
+            },
+            {
+              "key": "information",
+              "value": "Information: Informational messages (severity=6)"
+            }
+          ],
+          "default": "information"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "ipv6-server",
+    "description": "Remote IPv6 host",
+    "details": "Enable logging to remote IPv6 server",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "name"
+    ],
+    "minChildren": "0",
+    "maxChildren": "4",
+    "children": [
+      {
+        "key": "name",
+        "description": "IPv6 Hostname/IPv6 Address",
+        "details": "Set IPv6 hostname or IPv6 address of server",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "vpn",
+        "description": "VPN ID",
+        "details": "Set VPN in which syslog server is located",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "number",
+          "min": 0,
+          "max": 65530,
+          "default": 0
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "source-interface",
+        "description": "Source Interface",
+        "details": "Set interface to use to reach syslog server",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "priority",
+        "description": "Priority",
+        "details": "Set logging level for messages logged to server",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "emergency",
+              "value": "Emergency: System is unusable (severity=0)"
+            },
+            {
+              "key": "alert",
+              "value": "Alert: Immediate action needed (severity=1)"
+            },
+            {
+              "key": "critical",
+              "value": "Critical: Critical conditions (severity=2)"
+            },
+            {
+              "key": "error",
+              "value": "Error: Error conditions (severity=3)"
+            },
+            {
+              "key": "warn",
+              "value": "Warn: Warning conditions (severity=4)"
+            },
+            {
+              "key": "notice",
+              "value": "Notice: Normal but significant conditions (severity=5)"
+            },
+            {
+              "key": "information",
+              "value": "Information: Informational messages (severity=6)"
+            }
+          ],
+          "default": "information"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  }
+]

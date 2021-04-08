@@ -1,0 +1,87 @@
+[
+  {
+    "key": "user",
+    "description": "User Configuration",
+    "details": "Create local login account",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "authentication",
+      "users"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "name"
+    ],
+    "children": [
+      {
+        "key": "name",
+        "description": "Name",
+        "details": "Set the username",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "password",
+        "description": "Password",
+        "details": "Set the user password",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "passphrase"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "password-scrypt",
+        "description": "Password",
+        "details": "Set the user password",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "passphrase"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "role",
+        "description": "Role",
+        "details": "Set the role",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "administrators",
+              "value": "administrators"
+            }
+          ],
+          "default": "administrators"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  }
+]

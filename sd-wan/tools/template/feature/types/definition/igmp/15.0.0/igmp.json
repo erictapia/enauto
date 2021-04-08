@@ -1,0 +1,93 @@
+[
+  {
+    "key": "shutdown",
+    "description": "Shutdown",
+    "details": "Enable or disable IGMP",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false",
+      "label": {
+        "on": "Yes",
+        "off": "No"
+      }
+    },
+    "dataPath": [
+      "igmp"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "interface",
+    "description": "Interface",
+    "details": "Set IGMP interface parameters",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "igmp"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "name"
+    ],
+    "children": [
+      {
+        "key": "name",
+        "description": "Interface Name",
+        "details": "Set interface name",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "join-group",
+        "description": "Static Joins",
+        "details": "Configure static joins",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataPath": [],
+        "objectType": "tree",
+        "primaryKeys": [
+          "group-address"
+        ],
+        "children": [
+          {
+            "key": "group-address",
+            "description": "Group Address",
+            "details": "Set group address",
+            "optionType": [
+              "constant",
+              "variable"
+            ],
+            "defaultOption": "constant",
+            "dataType": {
+              "type": "ipv4"
+            },
+            "dataPath": [],
+            "objectType": "object"
+          }
+        ]
+      }
+    ]
+  }
+]

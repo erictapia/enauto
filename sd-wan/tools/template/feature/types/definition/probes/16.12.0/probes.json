@@ -1,0 +1,671 @@
+[
+  {
+    "key": "latency",
+    "description": "Frequency",
+    "details": "Probe latency in seconds: <0..65530>",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 65530,
+      "default": 30
+    },
+    "dataPath": [
+      "probe"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "pmtu-discovery",
+    "description": "PMTU discovery",
+    "details": "PMTU discovery",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "boolean",
+      "default": false
+    },
+    "dataPath": [
+      "probe"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "salesforce_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "office365_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "amazon_aws_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "oracle_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "box_net_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "dropbox_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "intuit_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "concur_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "sugar_crm_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "zoho_crm_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "zendesk_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "gotomeeting_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dscp",
+    "description": "DSCP value used for Saas Probe",
+    "details": "DSCP value used for Saas Probe",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 63
+    },
+    "dataPath": [
+      "probe",
+      "saas",
+      "google_apps"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "trigger",
+    "description": "trigger",
+    "details": "trigger",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "on-change",
+          "value": "on-change"
+        },
+        {
+          "key": "periodic",
+          "value": "periodic"
+        }
+      ]
+    },
+    "dataPath": [
+      "probe-path"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "latency",
+    "description": "Frequency",
+    "details": "latency",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 65530,
+      "default": 30
+    },
+    "dataPath": [
+      "probe-path"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "color-all-dia",
+    "description": "Start probes all DIA Interfaces",
+    "details": "Start probes all DIA Interfaces",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": false
+    },
+    "dataPath": [
+      "probe-path",
+      "branch"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "color-list",
+    "description": "TLOCS List Color",
+    "details": "Local color list",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [
+      "probe-path",
+      "branch"
+    ],
+    "dataType": {
+      "type": "enumList",
+      "values": [
+        {
+          "key": "default",
+          "value": "default"
+        },
+        {
+          "key": "mpls",
+          "value": "mpls"
+        },
+        {
+          "key": "metro-ethernet",
+          "value": "metro-ethernet"
+        },
+        {
+          "key": "biz-internet",
+          "value": "biz-internet"
+        },
+        {
+          "key": "public-internet",
+          "value": "public-internet"
+        },
+        {
+          "key": "lte",
+          "value": "lte"
+        },
+        {
+          "key": "3g",
+          "value": "3g"
+        },
+        {
+          "key": "red",
+          "value": "red"
+        },
+        {
+          "key": "green",
+          "value": "green"
+        },
+        {
+          "key": "blue",
+          "value": "blue"
+        },
+        {
+          "key": "gold",
+          "value": "gold"
+        },
+        {
+          "key": "silver",
+          "value": "silver"
+        },
+        {
+          "key": "bronze",
+          "value": "bronze"
+        },
+        {
+          "key": "custom1",
+          "value": "custom1"
+        },
+        {
+          "key": "custom2",
+          "value": "custom2"
+        },
+        {
+          "key": "custom3",
+          "value": "custom3"
+        },
+        {
+          "key": "private1",
+          "value": "private1"
+        },
+        {
+          "key": "private2",
+          "value": "private2"
+        },
+        {
+          "key": "private3",
+          "value": "private3"
+        },
+        {
+          "key": "private4",
+          "value": "private4"
+        },
+        {
+          "key": "private5",
+          "value": "private5"
+        },
+        {
+          "key": "private6",
+          "value": "private6"
+        }
+      ]
+    },
+    "objectType": "object"
+  },
+  {
+    "key": "local-interface-list",
+    "description": "Gateway Internet Exit interfaces",
+    "details": "Gateway Internet Exit interfaces",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [
+      "probe-path",
+      "gateway"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "local-interface"
+    ],
+    "minElements": 0,
+    "maxElements": 8,
+    "children": [
+      {
+        "key": "local-interface",
+        "description": "Interfaces",
+        "details": "local interface",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "all-tlocs",
+    "description": "Start probes all TLOCs",
+    "details": "Start probes all TLOCs",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "boolean",
+      "default": false
+    },
+    "dataPath": [
+      "bfd-probe-path"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "color-list",
+    "description": "TLOCS List Color",
+    "details": "Local color list",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [
+      "bfd-probe-path"
+    ],
+    "dataType": {
+      "type": "enumList",
+      "values": [
+        {
+          "key": "default",
+          "value": "default"
+        },
+        {
+          "key": "mpls",
+          "value": "mpls"
+        },
+        {
+          "key": "metro-ethernet",
+          "value": "metro-ethernet"
+        },
+        {
+          "key": "biz-internet",
+          "value": "biz-internet"
+        },
+        {
+          "key": "public-internet",
+          "value": "public-internet"
+        },
+        {
+          "key": "lte",
+          "value": "lte"
+        },
+        {
+          "key": "3g",
+          "value": "3g"
+        },
+        {
+          "key": "red",
+          "value": "red"
+        },
+        {
+          "key": "green",
+          "value": "green"
+        },
+        {
+          "key": "blue",
+          "value": "blue"
+        },
+        {
+          "key": "gold",
+          "value": "gold"
+        },
+        {
+          "key": "silver",
+          "value": "silver"
+        },
+        {
+          "key": "bronze",
+          "value": "bronze"
+        },
+        {
+          "key": "custom1",
+          "value": "custom1"
+        },
+        {
+          "key": "custom2",
+          "value": "custom2"
+        },
+        {
+          "key": "custom3",
+          "value": "custom3"
+        },
+        {
+          "key": "private1",
+          "value": "private1"
+        },
+        {
+          "key": "private2",
+          "value": "private2"
+        },
+        {
+          "key": "private3",
+          "value": "private3"
+        },
+        {
+          "key": "private4",
+          "value": "private4"
+        },
+        {
+          "key": "private5",
+          "value": "private5"
+        },
+        {
+          "key": "private6",
+          "value": "private6"
+        }
+      ]
+    },
+    "objectType": "object"
+  },
+  {
+    "key": "trigger-on-change",
+    "description": "Start event / On-Change based probe-paths",
+    "details": "Start event / On-Change based probe-paths",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "boolean",
+      "default": false
+    },
+    "dataPath": [
+      "bfd-probe-path"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "trigger-periodic",
+    "description": "Frequency",
+    "details": "Period (secs) + on-change for the probe path",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 4294967295,
+      "default": 3600
+    },
+    "dataPath": [
+      "bfd-probe-path"
+    ],
+    "objectType": "object"
+  }
+]

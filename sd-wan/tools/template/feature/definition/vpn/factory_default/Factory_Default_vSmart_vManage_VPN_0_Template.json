@@ -1,0 +1,55 @@
+{
+  "vpn-id": {
+    "vipObjectType": "object",
+    "vipType": "constant",
+    "vipValue": "0"
+  },
+  "name": {
+    "vipObjectType": "object",
+    "vipType": "ignore"
+  },
+  "host": {
+    "vipType": "ignore",
+    "vipValue": [],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "hostname"
+    ]
+  },
+  "ip": {
+    "route": {
+      "vipType": "constant",
+      "vipValue": [
+        {
+          "prefix": {
+            "vipObjectType": "object",
+            "vipVariableName": "route_prefix_0",
+            "vipType": "constant",
+            "vipValue": "0.0.0.0/0"
+          },
+          "next-hop": {
+            "address": {
+              "vipObjectType": "object",
+              "vipType": "variable",
+              "vipValue": ""
+            },
+            "distance": {
+              "vipObjectType": "object",
+              "vipValue": 1,
+              "vipType": "ignore"
+            }
+          },
+          "priority-order": [
+            "prefix",
+            "next-hop"
+          ]
+        }
+      ],
+      "vipObjectType": "tree",
+      "vipPrimaryKey": [
+        "prefix"
+      ]
+    }
+  },
+  "ipv6": {}
+}

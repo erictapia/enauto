@@ -1,0 +1,376 @@
+[
+  {
+    "key": "if-name",
+    "description": "Interface Name (1..255)",
+    "details": "Interface name: ge0/<0-..> or ge0/<0-..>.vlanid or irb<bridgeid:1-63> or loopback<string> or natpool-<1..31> when present",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 6,
+      "min": 1,
+      "max": 255
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "description",
+    "description": "Description",
+    "details": "Interface description",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "address",
+    "description": "IPv4 Address",
+    "details": "Assign IPv4 address",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "ipv4-prefix"
+    },
+    "dataPath": [
+      "ip"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "tunnel-source",
+    "description": "GRE Source IP Address",
+    "details": "Tunnel source IP Address",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "ipv4"
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "shutdown",
+    "description": "Shutdown",
+    "details": "Administrative state",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "true",
+      "label": {
+        "on": "Yes",
+        "off": "No"
+      }
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "tunnel-source-interface",
+    "description": "Tunnel Source Interface",
+    "details": "<1..32 characters> Interface name: ge0/<0-..> or ge0/<0-..>.vlanid",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "tunnel-destination",
+    "description": "GRE Destination IP Address",
+    "details": "Tunnel destination IP Address",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "ipv4"
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "interval",
+    "description": "Interval",
+    "details": "GRE keepalive interval <0..65535> seconds",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 65536,
+      "default": 10
+    },
+    "dataPath": [
+      "keepalive"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "retries",
+    "description": "Retries",
+    "details": "GRE keepalive retries <0..255>",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 255,
+      "default": 3
+    },
+    "dataPath": [
+      "keepalive"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "mtu",
+    "description": "IP MTU",
+    "details": "Interface MTU <576..2000>, in bytes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 576,
+      "max": 2000,
+      "default": 1500
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "clear-dont-fragment",
+    "description": "Clear-Dont-Fragment",
+    "details": "Clear don't fragment bit",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "tcp-mss-adjust",
+    "description": "TCP MSS",
+    "details": "TCP MSS on SYN packets, in bytes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 552,
+      "max": 1960
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "rule-name",
+    "description": "Rewrite Rule",
+    "details": "Name of rewrite rule",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "dataPath": [
+      "rewrite-rule"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "access-list",
+    "description": "ACL",
+    "details": "Apply ACL",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "direction"
+    ],
+    "children": [
+      {
+        "key": "direction",
+        "description": "Direction",
+        "details": "Direction",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "in",
+              "value": "in"
+            },
+            {
+              "key": "out",
+              "value": "out"
+            }
+          ]
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "acl-name",
+        "description": "Access list",
+        "details": "Name of access list",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "policer",
+    "description": "Policer",
+    "details": "Enable policer",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "policer-name",
+      "direction"
+    ],
+    "children": [
+      {
+        "key": "direction",
+        "description": "Direction",
+        "details": "Direction",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "in",
+              "value": "in"
+            },
+            {
+              "key": "out",
+              "value": "out"
+            }
+          ]
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "policer-name",
+        "description": "Policer name",
+        "details": "Name of policer",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "tracker",
+    "description": "Tracker",
+    "details": "Enable tracker for this interface",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string"
+    },
+    "minElements": 1,
+    "maxElements": 1,
+    "dataPath": [],
+    "objectType": "list"
+  }
+]

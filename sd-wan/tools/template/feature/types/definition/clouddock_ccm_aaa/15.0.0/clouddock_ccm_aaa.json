@@ -1,0 +1,70 @@
+[
+  {
+    "key": "user",
+    "description": "User Configuration",
+    "details": "Create local login account",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "rbac",
+      "users"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "name"
+    ],
+    "children": [
+      {
+        "key": "name",
+        "description": "Name",
+        "details": "Set the username",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "password",
+        "description": "Password",
+        "details": "Set the user password",
+        "optionType": [
+          "constant",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "passphrase"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "role",
+        "description": "Role",
+        "details": "Set the role",
+        "optionType": [
+          "constant",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "key": "md-list",
+    "description": "Mediation Device IP Subnet(Min:0, Max:8)",
+    "details": "Configure Mediation Device IP Subnets(Min:0, Max:8)",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [],
+    "objectType": "tree",
+    "maxElements": 8,
+    "primaryKeys": [
+      "ipaddr"
+    ],
+    "children": [
+      {
+        "key": "ipaddr",
+        "description": "IP Subnet",
+        "details": "Set IP Subnet",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4-prefix"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "snmp-acl-list",
+    "description": "New Server IP(Min:0, Max:8)",
+    "details": "Configure SNMP Server IP Addresses(Min:0, Max:8)",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [],
+    "objectType": "tree",
+    "maxElements": 8,
+    "primaryKeys": [
+      "ipaddr"
+    ],
+    "children": [
+      {
+        "key": "ipaddr",
+        "description": "Server IP",
+        "details": "Set IPv4 Prefix",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4-prefix"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  }
+]

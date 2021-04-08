@@ -1,0 +1,14 @@
+{
+  "login": {
+    "vipObjectType": "object",
+    "vipType": "constant",
+    "vipValue": "UN-AUTHORIZED ACCESS WILL BE PUNISHED BY LAW",
+    "vipVariableName": "banner_login"
+  },
+  "motd": {
+    "vipObjecttype": "object",
+    "vipType": "variableName",
+    "vipValue": "",
+    "vipVariableName": "banner_motd"
+  }
+}

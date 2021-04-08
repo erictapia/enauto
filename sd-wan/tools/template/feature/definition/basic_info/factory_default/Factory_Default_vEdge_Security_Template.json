@@ -1,0 +1,22 @@
+{
+  "ipsec": {
+    "rekey": {
+      "vipObjectType": "object",
+      "vipValue": 86400,
+      "vipType": "ignore"
+    },
+    "replay-window": {
+      "vipObjectType": "object",
+      "vipValue": 512,
+      "vipType": "ignore"
+    },
+    "authentication-type": {
+      "vipType": "constant",
+      "vipValue": [
+        "sha1-hmac",
+        "ah-sha1-hmac"
+      ],
+      "vipObjectType": "list"
+    }
+  }
+}

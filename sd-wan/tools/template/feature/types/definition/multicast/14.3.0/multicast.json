@@ -1,0 +1,41 @@
+[
+  {
+    "key": "local",
+    "description": "Local",
+    "details": "Replicator is local to this device",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "multicast-replicator"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "threshold",
+    "description": "Threshold",
+    "details": "Set number of joins per group the router supports",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 1000,
+      "default": 0
+    },
+    "dataPath": [
+      "multicast-replicator"
+    ],
+    "objectType": "object"
+  }
+]

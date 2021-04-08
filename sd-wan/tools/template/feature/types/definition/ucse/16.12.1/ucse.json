@@ -1,0 +1,528 @@
+[
+  {
+    "key": "subslot-name",
+    "description": "slot name",
+    "details": "Number of Slots",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "string",
+      "min": 1,
+      "max": 32
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "bay",
+    "description": "Bay",
+    "details": "Bay",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 2
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "slot",
+    "description": "Slot",
+    "details": "Slot",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 3
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "module-type",
+    "description": "Module",
+    "details": "Module type",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "ucse",
+          "value": "ucse"
+        }
+      ]
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "address",
+    "description": "IPv4 Address",
+    "details": "Assign IPv4 address",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "ipv4-prefix"
+    },
+    "dataPath": [
+      "imc",
+      "ip",
+      "static-case"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "vlan-id",
+    "description": "Vlan Id",
+    "details": "Assign Vlan Id",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 2,
+      "max": 4095
+    },
+    "dataPath": [
+      "imc",
+      "vlan"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "priority",
+    "description": "Assign priority",
+    "details": "Assign priority",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 7
+    },
+    "dataPath": [
+      "imc",
+      "vlan"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "default-gateway",
+    "description": "Default Gateway",
+    "details": "Assign default gateway",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "ipv4"
+    },
+    "dataPath": [
+      "imc",
+      "ip",
+      "static-case"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "dedicated",
+    "description": "Dedicated",
+    "details": "Dedicated",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "ge1",
+    "description": "ge1",
+    "details": "ge1",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port",
+      "shared-lom"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "ge2",
+    "description": "ge2",
+    "details": "ge2",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port",
+      "shared-lom"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "ge3",
+    "description": "ge3",
+    "details": "ge3",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port",
+      "shared-lom"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "te2",
+    "description": "te2",
+    "details": "te2",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port",
+      "shared-lom"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "te3",
+    "description": "te3",
+    "details": "te3",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port",
+      "shared-lom"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "console",
+    "description": "console",
+    "details": "console",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port",
+      "shared-lom"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "ge2",
+    "description": "ge2",
+    "details": "ge2",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port",
+      "shared-lom",
+      "failover"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "te2",
+    "description": "te2",
+    "details": "te2",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "imc",
+      "access-port",
+      "shared-lom",
+      "failover"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "interface",
+    "description": "Interface name",
+    "details": "Interface name: GigabitEthernet0/<>/<> when present",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "if-name"
+    ],
+    "children": [
+      {
+        "key": "if-name",
+        "description": "Inteface Name",
+        "details": "Set Inteface name",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "min": 1,
+          "max": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "mode",
+        "description": "Switch port type",
+        "details": "Set type of switch port: access/trunk",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "access",
+              "value": "access"
+            },
+            {
+              "key": "trunk",
+              "value": "trunk"
+            }
+          ]
+        },
+        "dataPath": [
+          "switchport"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "shutdown",
+        "description": "Shutdown",
+        "details": "Administrative state",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "boolean",
+          "default": "true",
+          "label": {
+            "on": "Yes",
+            "off": "No"
+          }
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "vlan",
+        "description": "VLAN ID",
+        "details": "Set VLAN identifier associated with bridging domain",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "number",
+          "min": 1,
+          "max": 4094
+        },
+        "dataPath": [
+          "switchport",
+          "access",
+          "vlan"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "vlans",
+        "description": "Allowed VLANS",
+        "details": "Configure VLAN IDs used with the trunk",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string",
+          "range": "1-4094"
+        },
+        "dataPath": [
+          "switchport",
+          "trunk",
+          "allowed",
+          "vlan"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "vlan",
+        "description": "Native VLAN ID",
+        "details": "Configure VLAN ID used for native VLAN",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "number",
+          "min": 1,
+          "max": 4094
+        },
+        "dataPath": [
+          "switchport",
+          "trunk",
+          "native"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "address",
+        "description": "IPv4 Address",
+        "details": "Assign IPv4 address",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "ipv4-prefix"
+        },
+        "dataPath": [
+          "ip",
+          "static-case"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "unnumbered",
+        "description": "IP Unnumbered",
+        "details": "IP Unnumbered",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [
+          "ip",
+          "unnumbered"
+        ],
+        "objectType": "object"
+      }
+    ]
+  }
+]

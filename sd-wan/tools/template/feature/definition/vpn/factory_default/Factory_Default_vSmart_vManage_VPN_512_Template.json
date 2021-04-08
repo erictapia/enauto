@@ -1,0 +1,21 @@
+{
+  "vpn-id": {
+    "vipObjectType": "object",
+    "vipType": "constant",
+    "vipValue": "512"
+  },
+  "name": {
+    "vipObjectType": "object",
+    "vipType": "ignore"
+  },
+  "host": {
+    "vipType": "ignore",
+    "vipValue": [],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "hostname"
+    ]
+  },
+  "ip": {},
+  "ipv6": {}
+}

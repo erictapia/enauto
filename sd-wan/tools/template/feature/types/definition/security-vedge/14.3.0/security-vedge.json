@@ -1,0 +1,130 @@
+[
+  {
+    "key": "rekey",
+    "description": "Rekey Time (seconds)",
+    "details": "Set how often to change the AES key for DTLS connections",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 10,
+      "max": 1209600,
+      "default": 86400
+    },
+    "dataPath": [
+      "ipsec"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "replay-window",
+    "description": "Replay Window",
+    "details": "Set the sliding replay window size",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "enum",
+      "default": "512",
+      "values": [
+        {
+          "key": "64",
+          "value": 64
+        },
+        {
+          "key": "128",
+          "value": 128
+        },
+        {
+          "key": "256",
+          "value": 256
+        },
+        {
+          "key": "512",
+          "value": 512
+        },
+        {
+          "key": "1024",
+          "value": 1024
+        },
+        {
+          "key": "2048",
+          "value": 2048
+        },
+        {
+          "key": "4096",
+          "value": 4096
+        },
+        {
+          "key": "8192",
+          "value": 8192
+        }
+      ]
+    },
+    "dataPath": [
+      "ipsec"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "authentication-type",
+    "description": "Authentication Type",
+    "details": "Set the authentication type for DTLS connections",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "none",
+          "value": "none"
+        },
+        {
+          "key": "sha1-hmac",
+          "value": "sha1-hmac"
+        },
+        {
+          "key": "ah-sha1-hmac",
+          "value": "ah-sha1-hmac"
+        },
+        {
+          "key": "ah-no-id",
+          "value": "ah-no-id"
+        }
+      ]
+    },
+    "dataPath": [
+      "ipsec"
+    ],
+    "objectType": "list"
+  },
+  {
+    "key": "pairwise-keying",
+    "description": "IPsec pairwise-keying",
+    "details": "Enable or disable IPsec pairwise-keying",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean"
+    },
+    "dataPath": [
+      "ipsec"
+    ],
+    "objectType": "object"
+  }
+]

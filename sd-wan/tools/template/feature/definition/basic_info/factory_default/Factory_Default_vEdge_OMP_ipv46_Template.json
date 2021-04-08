@@ -1,0 +1,97 @@
+{
+  "graceful-restart": {
+    "vipObjectType": "object",
+    "vipType": "ignore",
+    "vipValue": "true"
+  },
+  "send-path-limit": {
+    "vipObjectType": "object",
+    "vipType": "ignore",
+    "vipValue": 4
+  },
+  "ecmp-limit": {
+    "vipObjectType": "object",
+    "vipType": "ignore",
+    "vipValue": 4
+  },
+  "shutdown": {
+    "vipObjectType": "object",
+    "vipType": "ignore",
+    "vipValue": "false"
+  },
+  "timers": {
+    "advertisement-interval": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": 1
+    },
+    "graceful-restart-timer": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": 43200
+    },
+    "holdtime": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": 60
+    }
+  },
+  "advertise": {
+    "vipType": "constant",
+    "vipValue": [
+      {
+        "priority-order": [
+          "protocol"
+        ],
+        "protocol": {
+          "vipType": "constant",
+          "vipValue": "connected",
+          "vipObjectType": "object"
+        }
+      },
+      {
+        "priority-order": [
+          "protocol"
+        ],
+        "protocol": {
+          "vipType": "constant",
+          "vipValue": "static",
+          "vipObjectType": "object"
+        }
+      }
+    ],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "protocol"
+    ]
+  },
+  "ipv6-advertise": {
+    "vipType": "constant",
+    "vipValue": [
+      {
+        "priority-order": [
+          "protocol"
+        ],
+        "protocol": {
+          "vipType": "constant",
+          "vipValue": "connected",
+          "vipObjectType": "object"
+        }
+      },
+      {
+        "priority-order": [
+          "protocol"
+        ],
+        "protocol": {
+          "vipType": "constant",
+          "vipValue": "static",
+          "vipObjectType": "object"
+        }
+      }
+    ],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "protocol"
+    ]
+  }
+}

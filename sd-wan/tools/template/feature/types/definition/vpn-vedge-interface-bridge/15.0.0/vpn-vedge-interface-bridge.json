@@ -1,0 +1,516 @@
+[
+  {
+    "key": "if-name",
+    "description": "Interface Name",
+    "details": "Interface name: ge0/<0-..> or ge0/<0-..>.vlanid or irb<bridgeid:1-63> or loopback<string> or natpool-<1..31> when present",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "description",
+    "description": "Description",
+    "details": "Interface description",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "poe",
+    "description": "Power Over Ethernet",
+    "details": "Configure interface as Power-over-Ethernet source",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [],
+    "objectType": "object",
+    "deviceModels": [
+      "vedge-100",
+      "vedge-ISR1100-4GLTE",
+      "vedge-100-W2",
+      "vedge-100-WM",
+      "vedge-100-M2",
+      "vedge-100-M",
+      "vedge-ISR1100-4G"
+    ]
+  },
+  {
+    "key": "address",
+    "description": "IPv4 Address",
+    "details": "Assign IPv4 address",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "ipv4-prefix"
+    },
+    "dataPath": [
+      "ip"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "secondary-address",
+    "description": "Secondary IP Address",
+    "details": "Assign secondary IP addresses",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "ip"
+    ],
+    "objectType": "tree",
+    "maxElements": 4,
+    "primaryKeys": [
+      "address"
+    ],
+    "children": [
+      {
+        "key": "address",
+        "description": "IP Address",
+        "details": "IP Address",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "ipv4-prefix"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "dhcp-helper",
+    "description": "DHCP Helper",
+    "details": "List of DHCP server addresses",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "minElements": 1,
+    "maxElements": 8,
+    "dataType": {
+      "type": "ipv4"
+    },
+    "dataPath": [],
+    "objectType": "list"
+  },
+  {
+    "key": "clear-dont-fragment",
+    "description": "Clear-Dont-Fragment",
+    "details": "Clear don't fragment bit",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "mac-address",
+    "description": "MAC Address",
+    "details": "Set MAC-layer address",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "mac"
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "mtu",
+    "description": "IP MTU",
+    "details": "Interface MTU <576..2000>, in bytes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 576,
+      "max": 2000,
+      "default": 1500
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "tcp-mss-adjust",
+    "description": "TCP MSS",
+    "details": "TCP MSS on SYN packets, in bytes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 552,
+      "max": 1960
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "shutdown",
+    "description": "Shutdown",
+    "details": "Administrative state",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "true",
+      "label": {
+        "on": "Yes",
+        "off": "No"
+      }
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "arp-timeout",
+    "description": "ARP Timeout",
+    "details": "Timeout value for dynamically learned ARP entries, <0..2678400> seconds",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 2678400,
+      "default": 1200
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "icmp-redirect-disable",
+    "description": "ICMP Redirect",
+    "details": "Set this option to disable the icmp redirect packets",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false",
+      "label": {
+        "on": "Enable",
+        "off": "Disable"
+      }
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "block-non-source-ip",
+    "description": "Block Non Source IP",
+    "details": "Block packets originating from IP address that is not from this source",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false",
+      "label": {
+        "on": "Yes",
+        "off": "No"
+      }
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "access-list",
+    "description": "ACL",
+    "details": "Apply ACL",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "direction"
+    ],
+    "children": [
+      {
+        "key": "direction",
+        "description": "Direction",
+        "details": "Direction",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "in",
+              "value": "in"
+            },
+            {
+              "key": "out",
+              "value": "out"
+            }
+          ]
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "acl-name",
+        "description": "Access List",
+        "details": "Name of access list",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "ip",
+    "description": "Static ARP",
+    "details": "Configure static ARP entries",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "arp"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "addr"
+    ],
+    "children": [
+      {
+        "key": "addr",
+        "description": "IP Address",
+        "details": "IP Address",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "mac",
+        "description": "MAC Address",
+        "details": "MAC address",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "mac"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "vrrp",
+    "description": "VRRP",
+    "details": "Enable VRRP",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "grp-id"
+    ],
+    "children": [
+      {
+        "key": "grp-id",
+        "description": "Group ID",
+        "details": "Group ID",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "number",
+          "min": 1,
+          "max": 255
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "priority",
+        "description": "Priority",
+        "details": "Set priority",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "number",
+          "min": 1,
+          "max": 254,
+          "default": 100
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "timer",
+        "description": "Timer (seconds)",
+        "details": "Timer interval for successive advertisements, in seconds",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "number",
+          "min": 1,
+          "max": 3600,
+          "default": 1
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "track-omp",
+        "description": "Track OMP",
+        "details": "Track OMP status",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "boolean",
+          "default": "false"
+        },
+        "dataPath": [],
+        "objectType": "node-only"
+      },
+      {
+        "key": "track-prefix-list",
+        "description": "Track Prefix List",
+        "details": "Track Prefix List",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "address",
+        "description": "IP Address",
+        "details": "Assign IP Address",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "ipv4"
+        },
+        "dataPath": [
+          "ipv4"
+        ],
+        "objectType": "object"
+      }
+    ]
+  }
+]

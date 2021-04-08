@@ -1,0 +1,85 @@
+{
+  "clock": {
+    "timezone": {
+      "vipObjectType": "object",
+      "vipValue": "America/Los_Angeles",
+      "vipType": "ignore"
+    }
+  },
+  "gps-location": {
+    "latitude": {
+      "vipObjectType": "object",
+      "vipType": "ignore"
+    },
+    "longitude": {
+      "vipObjectType": "object",
+      "vipType": "ignore"
+    }
+  },
+  "timer": {
+    "dns-cache-timeout": {
+      "vipObjectType": "object",
+      "vipValue": 30,
+      "vipType": "ignore"
+    }
+  },
+  "location": {
+    "vipObjectType": "object",
+    "vipType": "ignore"
+  },
+  "system-tunnel-mtu": {
+    "vipObjectType": "object",
+    "vipValue": 1024,
+    "vipType": "ignore"
+  },
+  "track-transport": {
+    "vipObjectType": "object",
+    "vipValue": "true",
+    "vipType": "ignore"
+  },
+  "port-offset": {
+    "vipObjectType": "object",
+    "vipValue": 0,
+    "vipType": "ignore"
+  },
+  "port-hop": {
+    "vipObjectType": "object",
+    "vipValue": "true",
+    "vipType": "ignore"
+  },
+  "control-session-pps": {
+    "vipObjectType": "object",
+    "vipValue": 300,
+    "vipType": "ignore"
+  },
+  "description": {
+    "vipObjectType": "object",
+    "vipType": "ignore"
+  },
+  "device-groups": {
+    "vipObjectType": "list",
+    "vipType": "ignore"
+  },
+  "site-id": {
+    "vipObjectType": "object",
+    "vipType": "variable",
+    "vipValue": ""
+  },
+  "system-ip": {
+    "vipObjectType": "object",
+    "vipType": "variable",
+    "vipValue": ""
+  },
+  "host-name": {
+    "vipObjectType": "object",
+    "vipType": "variable",
+    "vipValue": ""
+  },
+  "track-default-gateway": {
+    "vipObjectType": "object",
+    "vipValue": "true",
+    "vipType": "ignore"
+  },
+  "host-policer-pps": {},
+  "icmp-error-pps": {}
+}

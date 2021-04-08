@@ -1,0 +1,179 @@
+[
+  {
+    "key": "id",
+    "description": "Cellular ID",
+    "details": "Cellular interface name",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [],
+    "objectType": "object",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 5
+    }
+  },
+  {
+    "key": "data-profile-list",
+    "description": "Data Profile List",
+    "details": "Data Profile List",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "lte",
+      "sim"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "slot"
+    ],
+    "maxElements": 2,
+    "minElements": 0,
+    "children": [
+      {
+        "key": "slot",
+        "description": "Slot",
+        "details": "Set slot number",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "number",
+          "min": 0,
+          "max": 1
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "data-profile",
+        "description": "Data Profile",
+        "details": "Set data profile",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "variable",
+        "dataType": {
+          "type": "number",
+          "min": 1,
+          "max": 16
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "attach-profile",
+        "description": "Attach Profile",
+        "details": "Set attach profile",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "variable",
+        "dataType": {
+          "type": "number",
+          "min": 1,
+          "max": 16
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "slot",
+    "description": "Primary SIM slot",
+    "details": "Set primary SIM slot",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 255
+    },
+    "dataPath": [
+      "lte",
+      "sim",
+      "primary"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "max-retry",
+    "description": "SIM Failover Retries",
+    "details": "Set SIM failover retries",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 65535
+    },
+    "dataPath": [
+      "lte",
+      "sim"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "failovertimer",
+    "description": "SIM Failover Timeout",
+    "details": "Set SIM failover timeout in minutes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 3,
+      "max": 7
+    },
+    "dataPath": [
+      "lte"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "auto-sim",
+    "description": "Firmware Auto SIM",
+    "details": "Enable/Disable Firmware Auto Sim",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "true",
+      "label": {
+        "on": "Enable",
+        "off": "Disable"
+      }
+    },
+    "dataPath": [
+      "lte",
+      "firmware"
+    ],
+    "objectType": "node-only"
+  }
+]

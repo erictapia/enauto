@@ -1,0 +1,46 @@
+[
+  {
+    "key": "udp-timeout",
+    "description": "UDP Timeout",
+    "details": "Set NAT64 UDP session timeout, in minutes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 65536,
+      "default": 1
+    },
+    "dataPath": [
+      "nat64-global",
+      "nat64-timeout"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "tcp-timeout",
+    "description": "TCP Timeout",
+    "details": "Set NAT64 TCP session timeout, in minutes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 65536,
+      "default": 60
+    },
+    "dataPath": [
+      "nat64-global",
+      "nat64-timeout"
+    ],
+    "objectType": "object"
+  }
+]

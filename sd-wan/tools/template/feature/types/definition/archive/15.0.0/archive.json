@@ -1,0 +1,70 @@
+[
+  {
+    "key": "path",
+    "description": "Path to Archive File Directory",
+    "details": "Set the path to the archive file directory (ftp://file-path, scp://user@host:file-path, /)",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "string"
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "interval",
+    "description": "Archival Interval (minutes)",
+    "details": "Set how often to archive full running configuration",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 5,
+      "max": 525600,
+      "default": 10080
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "ssh-id-file",
+    "description": "SSH Key File",
+    "details": "Set name of SSH private key file on local device",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string"
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "vpn",
+    "description": "VPN ID",
+    "details": "Set VPN in which archiver server is located",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 65530
+    },
+    "dataPath": [],
+    "objectType": "object"
+  }
+]

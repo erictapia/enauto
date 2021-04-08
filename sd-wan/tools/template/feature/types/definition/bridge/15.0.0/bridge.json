@@ -1,0 +1,201 @@
+[
+  {
+    "key": "name",
+    "description": "Bridge Name",
+    "details": "Configure bridge description",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 63
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "age-time",
+    "description": "Age-Out Time (seconds)",
+    "details": "Set when a MAC table entry ages out",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 10,
+      "max": 4096,
+      "default": 300
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "max-macs",
+    "description": "Maximum MAC Addresses",
+    "details": "Set maximum number of MAC addresses the bridging domain can learn",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 0,
+      "max": 4096,
+      "default": 1024
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "vlan",
+    "description": "VLAN ID",
+    "details": "Set VLAN identifier associated with bridging domain",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 4095
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "interface",
+    "description": "Interface to bind to bridging domain",
+    "details": "Configure interface to associate with bridging domain",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "if-name"
+    ],
+    "children": [
+      {
+        "key": "if-name",
+        "description": "Interface Name",
+        "details": "Configure the Gigabit Ethernet interface name",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "description",
+        "description": "Description",
+        "details": "Configure interface description",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "native-vlan",
+        "description": "Native VLAN support",
+        "details": "Configure interface to carry untagged traffic",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "boolean",
+          "default": "false",
+          "label": {
+            "on": "Yes",
+            "off": "No"
+          }
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "static-mac-address",
+        "description": "Static MAC Address",
+        "details": "Add static MAC address entries for interface",
+        "optionType": [
+          "constant",
+          "ignore"
+        ],
+        "objectType": "tree",
+        "primaryKeys": [
+          "macaddr"
+        ],
+        "defaultOption": "constant",
+        "dataPath": [],
+        "children": [
+          {
+            "key": "macaddr",
+            "description": "MAC Address",
+            "details": "Set MAC address",
+            "optionType": [
+              "constant",
+              "variable"
+            ],
+            "defaultOption": "constant",
+            "dataType": {
+              "type": "mac"
+            },
+            "dataPath": [],
+            "objectType": "object"
+          }
+        ]
+      },
+      {
+        "key": "shutdown",
+        "description": "Shutdown",
+        "details": "Enable or disable interface in bridging domain",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "boolean",
+          "default": "true",
+          "label": {
+            "on": "Yes",
+            "off": "No"
+          }
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  }
+]

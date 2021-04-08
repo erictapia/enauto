@@ -1,0 +1,127 @@
+[
+  {
+    "key": "enable",
+    "description": "GPS",
+    "details": "Enable/disable GPS",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [],
+    "objectType": "node-only"
+  },
+  {
+    "key": "mode",
+    "description": "GPS Mode",
+    "details": "Select GPS mode",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "ms-based",
+          "value": "MS based"
+        },
+        {
+          "key": "standalone",
+          "value": "Standalone"
+        }
+      ],
+      "default": "ms-based"
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "nmea",
+    "description": "NMEA",
+    "details": "Enable/disable NMEA data",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [
+      "nmea-conf"
+    ],
+    "objectType": "node-only"
+  },
+  {
+    "key": "source-address",
+    "description": "Source Address",
+    "details": "Source address",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "ipv4"
+    },
+    "dataPath": [
+      "nmea",
+      "ip",
+      "udp"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "destination-address",
+    "description": "Destination Address",
+    "details": "Destination address",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "ipv4"
+    },
+    "dataPath": [
+      "nmea",
+      "ip",
+      "udp"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "destination-port",
+    "description": "Destination Port",
+    "details": "Destination port",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 65535
+    },
+    "dataPath": [
+      "nmea",
+      "ip",
+      "udp"
+    ],
+    "objectType": "object"
+  }
+]

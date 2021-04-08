@@ -1,0 +1,37 @@
+[
+  {
+    "key": "backup_server",
+    "description": "Backup server",
+    "details": "Backup this NTP server",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string"
+    },
+    "dataPath": [
+      "time",
+      "ntp"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "preferred_server",
+    "description": "Preferred server",
+    "details": "Prefer this NTP server",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "string"
+    },
+    "dataPath": [
+      "time",
+      "ntp"
+    ],
+    "objectType": "object"
+  }
+]

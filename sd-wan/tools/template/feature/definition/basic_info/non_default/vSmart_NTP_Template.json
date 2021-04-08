@@ -1,0 +1,62 @@
+{
+  "keys": {
+    "trusted": {
+      "vipObjectType": "list",
+      "vipType": "ignore",
+      "vipVariableName": "trusted_key"
+    }
+  },
+  "server": {
+    "vipType": "constant",
+    "vipValue": [
+      {
+        "name": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "10.17.251.250",
+          "vipVariableName": "ntp_server_host"
+        },
+        "key": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipVariableName": "ntp_server_server_auth_key"
+        },
+        "vpn": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipValue": 0,
+          "vipVariableName": "ntp_server_vpn"
+        },
+        "version": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipValue": 4,
+          "vipVariableName": "ntp_server_version"
+        },
+        "source-interface": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipVariableName": "ntp_server_source_interface"
+        },
+        "prefer": {
+          "vipObjectType": "object",
+          "vipType": "ignore",
+          "vipValue": "false",
+          "vipVariableName": "ntp_server_prefer"
+        },
+        "priority-order": [
+          "name",
+          "key",
+          "vpn",
+          "version",
+          "source-interface",
+          "prefer"
+        ]
+      }
+    ],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "name"
+    ]
+  }
+}

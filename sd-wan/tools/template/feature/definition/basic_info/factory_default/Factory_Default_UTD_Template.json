@@ -1,0 +1,54 @@
+{
+  "virtual-application": {
+    "vipType": "constant",
+    "vipValue": [
+      {
+        "instance-id": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "1",
+          "vipVariableName": "instance_id"
+        },
+        "application-type": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "utd",
+          "vipVariableName": "application_type"
+        },
+        "utd": {
+          "nat": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "true",
+            "vipVariableName": "nat"
+          },
+          "resource-profile": {
+            "vipObjectType": "object",
+            "vipType": "ignore",
+            "vipValue": "_empty",
+            "vipVariableName": "resource_profile"
+          },
+          "service-gateway-ip": {
+            "vipObjectType": "object",
+            "vipType": "ignore",
+            "vipVariableName": "service_gateway_ip"
+          },
+          "service-ip": {
+            "vipObjectType": "object",
+            "vipType": "ignore",
+            "vipVariableName": "service_ip"
+          }
+        },
+        "priority-order": [
+          "instance-id",
+          "application-type",
+          "utd"
+        ]
+      }
+    ],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "instance-id"
+    ]
+  }
+}

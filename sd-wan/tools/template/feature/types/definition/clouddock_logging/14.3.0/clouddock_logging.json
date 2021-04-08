@@ -1,0 +1,82 @@
+[
+  {
+    "key": "host",
+    "description": "Remote host",
+    "details": "Enable logging to remote server",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "settings",
+      "logging"
+    ],
+    "objectType": "tree",
+    "children": [
+      {
+        "key": "host",
+        "description": "Hostname/IP Address",
+        "details": "Set hostname or IP address of server",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "severity",
+    "description": "Severity",
+    "details": "Set logging level for messages logged to server",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "emergency",
+          "value": "Emergency: System is unusable (severity=0)"
+        },
+        {
+          "key": "alert",
+          "value": "Alert: Immediate action needed (severity=1)"
+        },
+        {
+          "key": "critical",
+          "value": "Critical: Critical conditions (severity=2)"
+        },
+        {
+          "key": "error",
+          "value": "Error: Error conditions (severity=3)"
+        },
+        {
+          "key": "warn",
+          "value": "Warn: Warning conditions (severity=4)"
+        },
+        {
+          "key": "notice",
+          "value": "Notice: Normal but significant conditions (severity=5)"
+        },
+        {
+          "key": "information",
+          "value": "Information: Informational messages (severity=6)"
+        }
+      ],
+      "default": "information"
+    },
+    "dataPath": [
+      "settings",
+      "logging"
+    ],
+    "objectType": "object"
+  }
+]

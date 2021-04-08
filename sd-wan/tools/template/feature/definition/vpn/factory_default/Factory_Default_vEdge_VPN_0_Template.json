@@ -1,0 +1,35 @@
+{
+  "vpn-id": {
+    "vipObjectType": "object",
+    "vipType": "constant",
+    "vipValue": 0
+  },
+  "name": {
+    "vipObjectType": "object",
+    "vipType": "constant",
+    "vipValue": "Transport VPN"
+  },
+  "ecmp-hash-key": {
+    "layer4": {
+      "vipObjectType": "object",
+      "vipType": "ignore",
+      "vipValue": "false"
+    }
+  },
+  "host": {
+    "vipType": "ignore",
+    "vipValue": [],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "hostname"
+    ]
+  },
+  "service": {
+    "vipType": "ignore",
+    "vipValue": [],
+    "vipObjectType": "tree",
+    "vipPrimaryKey": [
+      "svc-type"
+    ]
+  }
+}

@@ -1,0 +1,635 @@
+[
+  {
+    "key": "if-name",
+    "description": "Interface Name (1..31)",
+    "details": "Interface name: natpool-<1..31> when present",
+    "optionType": [
+      "constant",
+      "variable"
+    ],
+    "defaultOption": "constant",
+    "dataType": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 9,
+      "min": 1,
+      "max": 31
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "shutdown",
+    "description": "Shutdown",
+    "details": "Administrative state",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "true",
+      "label": {
+        "on": "Yes",
+        "off": "No"
+      }
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "description",
+    "description": "Description",
+    "details": "Interface description",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "dataPath": [],
+    "objectType": "object"
+  },
+  {
+    "key": "address",
+    "description": "IPv4 Address",
+    "details": "Assign IPv4 address",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "ipv4-prefix"
+    },
+    "dataPath": [
+      "ip"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "nat",
+    "description": "NAT",
+    "details": "Network Address Translation on this interface",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "dataPath": [],
+    "objectType": "node-only"
+  },
+  {
+    "key": "block-icmp-error",
+    "description": "Block ICMP",
+    "details": "Block inbound ICMP error messages",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "refresh",
+    "description": "Refresh Mode",
+    "details": "Set NAT refresh mode",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "outbound",
+          "value": "outbound"
+        },
+        {
+          "key": "bi-directional",
+          "value": "bi-directional"
+        }
+      ],
+      "default": "outbound"
+    },
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "udp-timeout",
+    "description": "UDP Timeout",
+    "details": "Set NAT UDP session timeout, in minutes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 65536,
+      "default": 1
+    },
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "tcp-timeout",
+    "description": "TCP Timeout",
+    "details": "Set NAT TCP session timeout, in minutes",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "number",
+      "min": 1,
+      "max": 65536,
+      "default": 60
+    },
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "direction",
+    "description": "Direction",
+    "details": "Direction of NAT translation",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "enum",
+      "values": [
+        {
+          "key": "inside",
+          "value": "inside"
+        },
+        {
+          "key": "outside",
+          "value": "outside"
+        }
+      ],
+      "default": "inside"
+    },
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "overload",
+    "description": "Overload",
+    "details": "Enable port translation(PAT)",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataType": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "object"
+  },
+  {
+    "key": "port-forward",
+    "description": "Port-Forwarding Rules",
+    "details": "Set port-forwarding rules for NAT on this interface",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "port-start",
+      "port-end",
+      "proto"
+    ],
+    "children": [
+      {
+        "key": "port-start",
+        "description": "Port Start Range",
+        "details": "Starting port of port range",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "number",
+          "min": 0,
+          "max": 65535
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "port-end",
+        "description": "Port End Range",
+        "details": "Ending port of port range",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "number",
+          "min": 0,
+          "max": 65535
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "proto",
+        "description": "Protocol",
+        "details": "Layer 4 protocol to apply port forwarding to",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "tcp",
+              "value": "tcp"
+            },
+            {
+              "key": "udp",
+              "value": "udp"
+            }
+          ]
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "private-vpn",
+        "description": "VPN",
+        "details": "VPN in which private IP Address resides",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "number",
+          "min": 0,
+          "max": 65535
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "private-ip-address",
+        "description": "Private IP",
+        "details": "Private IP address to translate to",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "static",
+    "description": "Static NAT",
+    "details": "Configure static NAT entries",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "source-ip",
+      "translate-ip"
+    ],
+    "children": [
+      {
+        "key": "source-ip",
+        "description": "Source IP",
+        "details": "Source IP address to be translated",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "translate-ip",
+        "description": "Translate IP",
+        "details": "Statically translated source IP address",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "static-nat-direction",
+        "description": "Static NAT Direction",
+        "details": "Direction of static NAT translation",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "inside",
+              "value": "inside"
+            },
+            {
+              "key": "outside",
+              "value": "outside"
+            }
+          ]
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  },
+  {
+    "key": "tracker",
+    "description": "NAT Tracker",
+    "details": "Track the reachability of pre-NAT IP",
+    "optionType": [
+      "constant",
+      "variable",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "nat"
+    ],
+    "objectType": "tree",
+    "primaryKeys": [
+      "interface"
+    ],
+    "children": [
+      {
+        "key": "interface",
+        "description": "Interfaces",
+        "details": "Interface to track",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enumList",
+          "values": [
+            {
+              "key": "ge0/0",
+              "value": "ge0/0"
+            },
+            {
+              "key": "ge0/1",
+              "value": "ge0/1"
+            },
+            {
+              "key": "ge0/2",
+              "value": "ge0/2"
+            },
+            {
+              "key": "ge0/3",
+              "value": "ge0/3"
+            },
+            {
+              "key": "ge0/4",
+              "value": "ge0/4"
+            },
+            {
+              "key": "ge0/5",
+              "value": "ge0/5"
+            },
+            {
+              "key": "ge0/6",
+              "value": "ge0/6"
+            },
+            {
+              "key": "ge0/7",
+              "value": "ge0/7"
+            },
+            {
+              "key": "ge0/8",
+              "value": "ge0/8"
+            },
+            {
+              "key": "ge0/9",
+              "value": "ge0/9"
+            },
+            {
+              "key": "ge0/10",
+              "value": "ge0/10"
+            },
+            {
+              "key": "ge1/0",
+              "value": "ge1/0"
+            },
+            {
+              "key": "ge1/1",
+              "value": "ge1/1"
+            },
+            {
+              "key": "ge1/2",
+              "value": "ge1/2"
+            },
+            {
+              "key": "ge1/3",
+              "value": "ge1/3"
+            },
+            {
+              "key": "ge1/4",
+              "value": "ge1/4"
+            },
+            {
+              "key": "ge1/5",
+              "value": "ge1/5"
+            },
+            {
+              "key": "ge1/6",
+              "value": "ge1/6"
+            },
+            {
+              "key": "ge1/7",
+              "value": "ge1/7"
+            },
+            {
+              "key": "ge1/8",
+              "value": "ge1/8"
+            },
+            {
+              "key": "ge1/9",
+              "value": "ge1/9"
+            },
+            {
+              "key": "ge1/10",
+              "value": "ge1/10"
+            },
+            {
+              "key": "ge2/0",
+              "value": "ge2/0"
+            },
+            {
+              "key": "ge2/1",
+              "value": "ge2/1"
+            },
+            {
+              "key": "ge2/2",
+              "value": "ge2/2"
+            },
+            {
+              "key": "ge2/3",
+              "value": "ge2/3"
+            },
+            {
+              "key": "ge2/4",
+              "value": "ge2/4"
+            },
+            {
+              "key": "ge2/5",
+              "value": "ge2/5"
+            },
+            {
+              "key": "ge2/6",
+              "value": "ge2/6"
+            },
+            {
+              "key": "ge2/7",
+              "value": "ge2/7"
+            },
+            {
+              "key": "ge2/8",
+              "value": "ge2/8"
+            },
+            {
+              "key": "ge2/9",
+              "value": "ge2/9"
+            },
+            {
+              "key": "ge2/10",
+              "value": "ge2/10"
+            },
+            {
+              "key": "ge3/0",
+              "value": "ge3/0"
+            },
+            {
+              "key": "ge3/1",
+              "value": "ge3/1"
+            },
+            {
+              "key": "ge3/2",
+              "value": "ge3/2"
+            },
+            {
+              "key": "ge3/3",
+              "value": "ge3/3"
+            },
+            {
+              "key": "ge3/4",
+              "value": "ge3/4"
+            },
+            {
+              "key": "ge3/5",
+              "value": "ge3/5"
+            },
+            {
+              "key": "ge3/6",
+              "value": "ge3/6"
+            },
+            {
+              "key": "ge3/7",
+              "value": "ge3/7"
+            },
+            {
+              "key": "ge3/8",
+              "value": "ge3/8"
+            },
+            {
+              "key": "ge3/9",
+              "value": "ge3/9"
+            },
+            {
+              "key": "ge3/10",
+              "value": "ge3/10"
+            }
+          ]
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  }
+]

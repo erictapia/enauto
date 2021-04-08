@@ -1,0 +1,116 @@
+{
+  "appnav-controller-group": {
+    "vipObjectType": "tree",
+    "vipType": "constant",
+    "vipValue": [
+      {
+        "group-name": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "ACG-APPQOE"
+        },
+        "appnav-controllers": {
+          "vipObjectType": "tree",
+          "vipType": "constant",
+          "vipPrimaryKey": [
+            "address"
+          ],
+          "vipValue": [
+            {
+              "address": {
+                "vipObjectType": "object",
+                "vipType": "constant",
+                "vipValue": "192.168.2.1"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "vipPrimaryKey": [
+      "group-name"
+    ]
+  },
+  "service-node-group": {
+    "vipObjectType": "tree",
+    "vipType": "constant",
+    "vipValue": [
+      {
+        "name": {
+          "vipObjectType": "object",
+          "vipType": "constant",
+          "vipValue": "SNG-APPQOE"
+        },
+        "internal": {
+          "vipObjectType": "node-only",
+          "vipType": "constant",
+          "vipValue": "true"
+        },
+        "service-node": {
+          "vipObjectType": "tree",
+          "vipType": "constant",
+          "vipPrimaryKey": [
+            "address"
+          ],
+          "vipValue": [
+            {
+              "address": {
+                "vipObjectType": "object",
+                "vipType": "constant",
+                "vipValue": "192.168.2.2",
+                "vipVariableName": "appqoe_service_node_address_0"
+              },
+              "vpg-ip": {
+                "vipObjectType": "object",
+                "vipType": "ignore",
+                "vipValue": ""
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "vipPrimaryKey": [
+      "name"
+    ]
+  },
+  "service-context": {
+    "appqoe": {
+      "vipObjectType": "tree",
+      "vipType": "constant",
+      "vipPrimaryKey": [
+        "name"
+      ],
+      "vipValue": [
+        {
+          "name": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "/1"
+          },
+          "appnav-controller-group": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "ACG-APPQOE"
+          },
+          "service-node-group": {
+            "vipObjectType": "object",
+            "vipType": "constant",
+            "vipValue": "SNG-APPQOE"
+          },
+          "enable": {
+            "vipObjectType": "node-only",
+            "vipType": "constant",
+            "vipValue": "true"
+          },
+          "vpn": {
+            "vipObjectType": "object",
+            "vipType": "ignore",
+            "vipValue": 0,
+            "vipVariableName": "appqoe_vrf"
+          }
+        }
+      ]
+    }
+  }
+}

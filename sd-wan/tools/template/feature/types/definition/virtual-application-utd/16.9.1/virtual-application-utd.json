@@ -1,0 +1,178 @@
+[
+  {
+    "key": "virtual-application",
+    "description": "Virtual Application",
+    "details": "Virtual application Instance",
+    "optionType": [
+      "constant"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [],
+    "objectType": "tree",
+    "primaryKeys": [
+      "instance-id"
+    ],
+    "children": [
+      {
+        "key": "instance-id",
+        "description": "Virtual Application Instance",
+        "details": "List of Virtual applications",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 36,
+          "default": "1"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "application-type",
+        "description": "Virtual Application Type",
+        "details": "List of Virtual applications",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "utd",
+              "value": "utd"
+            }
+          ],
+          "default": "utd"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "nat",
+        "description": "NAT",
+        "details": "Is Nat enabled",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "boolean",
+          "default": "true"
+        },
+        "dataPath": [
+          "utd"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "resource-profile",
+        "description": "Resource Profile",
+        "details": "Resource Profile",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "enum",
+          "values": [
+            {
+              "key": "default",
+              "value": "default"
+            },
+            {
+              "key": "high",
+              "value": "high"
+            }
+          ],
+          "default": "default"
+        },
+        "dataPath": [
+          "utd"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "service-gateway-ip",
+        "description": "Service Gateway IP",
+        "details": "Service Gateway IP (Management interface)",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "ipv4-prefix"
+        },
+        "dataPath": [
+          "utd"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "service-ip",
+        "description": "Service IP",
+        "details": "Service IP",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "ipv4-prefix"
+        },
+        "dataPath": [
+          "utd"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "data-gateway-ip",
+        "description": "Data Gateway IP",
+        "details": "Data Gateway IP ",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "ipv4-prefix",
+          "default": "192.0.2.1/24"
+        },
+        "dataPath": [
+          "utd"
+        ],
+        "objectType": "object"
+      },
+      {
+        "key": "data-service-ip",
+        "description": "Data Service IP",
+        "details": "Data Service IP",
+        "optionType": [
+          "constant",
+          "variable",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "ipv4-prefix",
+          "default": "192.0.2.2/24"
+        },
+        "dataPath": [
+          "utd"
+        ],
+        "objectType": "object"
+      }
+    ]
+  }
+]

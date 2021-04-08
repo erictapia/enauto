@@ -1,0 +1,333 @@
+[
+  {
+    "key": "appnav-controller-group",
+    "description": "Appnav Controller Group",
+    "details": "Appnav controller group name",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [],
+    "objectType": "tree",
+    "maxElements": 1,
+    "primaryKeys": [
+      "group-name"
+    ],
+    "children": [
+      {
+        "key": "group-name",
+        "description": "Name",
+        "details": "List of controller group",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "description",
+        "description": "description",
+        "details": "appnav controller group description",
+        "optionType": [
+          "constant",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "appnav-controller",
+        "description": "Controller IP",
+        "details": "List of controllers",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "ipv4"
+        },
+        "minElements": 1,
+        "maxElements": 1,
+        "dataPath": [],
+        "objectType": "list"
+      },
+      {
+        "key": "appnav-controllers",
+        "description": "Controller IP",
+        "details": "List of controllers",
+        "optionType": [
+          "constant",
+          "variable"
+        ],
+        "defaultOption": "constant",
+        "dataPath": [],
+        "objectType": "tree",
+        "minElements": 1,
+        "maxElements": 1,
+        "primaryKeys": [
+          "address"
+        ],
+        "children": [
+          {
+            "key": "address",
+            "description": "Controller IP address",
+            "details": "Controller IP Address",
+            "optionType": [
+              "constant",
+              "variable"
+            ],
+            "defaultOption": "constant",
+            "dataType": {
+              "type": "ipv4"
+            },
+            "minElements": 1,
+            "maxElements": 1,
+            "dataPath": [],
+            "objectType": "object"
+          },
+          {
+            "key": "vpn",
+            "description": "VPN id",
+            "details": "vpn id",
+            "optionType": [
+              "constant",
+              "ignore",
+              "variable"
+            ],
+            "defaultOption": "ignore",
+            "dataType": {
+              "type": "number",
+              "min": 0,
+              "max": 65530,
+              "default": 0
+            },
+            "minElements": 1,
+            "maxElements": 1,
+            "dataPath": [],
+            "objectType": "object"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "service-node-group",
+    "description": "Service Node Group",
+    "details": "Name",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "constant",
+    "dataPath": [],
+    "objectType": "tree",
+    "maxElements": 1,
+    "primaryKeys": [
+      "name"
+    ],
+    "children": [
+      {
+        "key": "name",
+        "description": "Name",
+        "details": "List of service node group",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "description",
+        "description": "description",
+        "details": "Service node group description",
+        "optionType": [
+          "constant",
+          "ignore"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "internal",
+        "description": "Internal",
+        "details": "Internal",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "boolean",
+          "default": "false"
+        },
+        "dataPath": [],
+        "objectType": "node-only"
+      },
+      {
+        "key": "service-node",
+        "description": "Service Node",
+        "details": "Service Node Information",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataPath": [],
+        "objectType": "tree",
+        "minElements": 1,
+        "maxElements": 32,
+        "primaryKeys": [
+          "address"
+        ],
+        "children": [
+          {
+            "key": "address",
+            "description": "Service Node IP",
+            "details": "IP Address",
+            "optionType": [
+              "constant",
+              "variable"
+            ],
+            "defaultOption": "constant",
+            "dataType": {
+              "type": "ipv4"
+            },
+            "minElements": 1,
+            "maxElements": 1,
+            "dataPath": [],
+            "objectType": "object"
+          },
+          {
+            "key": "vpg-ip",
+            "description": "Virtual Port Group IP",
+            "details": "ip and prefix",
+            "optionType": [
+              "constant",
+              "variable"
+            ],
+            "defaultOption": "constant",
+            "dataType": {
+              "type": "ipv4-prefix"
+            },
+            "minElements": 1,
+            "maxElements": 1,
+            "dataPath": [],
+            "objectType": "object"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "appqoe",
+    "description": "Service Context",
+    "details": "Service Context",
+    "optionType": [
+      "constant",
+      "ignore"
+    ],
+    "defaultOption": "ignore",
+    "dataPath": [
+      "service-context"
+    ],
+    "objectType": "tree",
+    "maxElements": 1,
+    "primaryKeys": [
+      "name"
+    ],
+    "children": [
+      {
+        "key": "name",
+        "description": "Name",
+        "details": "List of services",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "appnav-controller-group",
+        "description": "Appnav Controller Group",
+        "details": "Appnav controller group",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "service-node-group",
+        "description": "Service Node Group",
+        "details": "Service node group",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "string"
+        },
+        "dataPath": [],
+        "objectType": "object"
+      },
+      {
+        "key": "enable",
+        "description": "Enable",
+        "details": "enable service context",
+        "optionType": [
+          "constant"
+        ],
+        "defaultOption": "constant",
+        "dataType": {
+          "type": "boolean",
+          "default": "false"
+        },
+        "dataPath": [],
+        "objectType": "node-only"
+      },
+      {
+        "key": "vpn",
+        "description": "Vpn",
+        "details": "Vpn",
+        "optionType": [
+          "constant",
+          "ignore",
+          "variable"
+        ],
+        "defaultOption": "ignore",
+        "dataType": {
+          "type": "number",
+          "min": 0,
+          "max": 65530,
+          "default": 0
+        },
+        "dataPath": [],
+        "objectType": "object"
+      }
+    ]
+  }
+]
