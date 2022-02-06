@@ -1,10 +1,10 @@
 import requests
 
 device = {
-    'host': 'ios-xe-mgmt.cisco.com',
+    'host': 'sandbox-iosxe-latest-1.cisco.com',
     'username': 'developer',
     'password': 'C1sco12345',
-    'port': '9443'
+    'port': '443'
 }
 
 # Globals
@@ -17,7 +17,7 @@ HEADERS = {
 
 def get_url(base_url, module, container, resource=None):
     # Returns the RESTCONF URL
-    return f'{BASE_URL}/{module}:{container}/{resource}'
+    return f'{base_url}/{module}:{container}/{resource}'
 
 def get_shipintbr_cli(interfaces):
     # Returns a string representation of a cli sh ip int br
